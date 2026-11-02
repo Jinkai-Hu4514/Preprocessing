@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "condition": "robust_first50",
+  "model": "mlpmodel",
+  "model_seed": 42,
+  "epochs": 60,
+  "best_val_acc": 0.45750160978750803,
+  "test_acc": 0.6731816725408523,
+  "preprocess_seconds": 1766.4054737091064,
+  "training_seconds": 2364.5186018943787,
+  "run_id": "c3c6d892d3c845509caa9c537d3efbeb9ae5e9699cda2559a0e6fbbfd5bde7f8"
+}

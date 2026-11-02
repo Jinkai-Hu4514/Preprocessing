@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "condition": "common_only",
+  "model": "mlpmodel",
+  "model_seed": 42,
+  "epochs": 60,
+  "best_val_acc": 0.8203477141017386,
+  "test_acc": 0.9029157321371355,
+  "preprocess_seconds": 1481.5070261955261,
+  "training_seconds": 2373.7512991428375,
+  "run_id": "c3c6d892d3c845509caa9c537d3efbeb9ae5e9699cda2559a0e6fbbfd5bde7f8"
+}

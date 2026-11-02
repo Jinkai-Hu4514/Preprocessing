@@ -1,0 +1,5 @@
+{
+  "max_complex_absolute_error": 0.0266440249979496,
+  "max_amplitude_error": 7.62939453125e-06,
+  "equivalent_at_rtol_1e-6_atol_1e-7": false
+}

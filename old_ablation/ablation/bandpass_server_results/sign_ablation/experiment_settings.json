@@ -1,0 +1,86 @@
+{
+  "data_path": "/home/test/bupt_hjk/sdp_dataset/xrf55/wifi",
+  "output_dir": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation",
+  "cases": [
+    {
+      "case": "bp_fs200_legacy_abs",
+      "denoiser": "bandpass",
+      "fs_hz": 200.0,
+      "iqr_mode": "legacy_abs",
+      "normalization_input": "abs",
+      "role": "main_2x2"
+    },
+    {
+      "case": "bp_fs200_signed",
+      "denoiser": "bandpass",
+      "fs_hz": 200.0,
+      "iqr_mode": "signed",
+      "normalization_input": "signed",
+      "role": "main_2x2"
+    }
+  ],
+  "seeds": [
+    42
+  ],
+  "epochs": 50,
+  "user_count": 3,
+  "workers": 4,
+  "split": "repetition 1-12 train / 13-16 val / 17-20 test",
+  "pipeline_order": "raw -> denoise -> IQR/no-IQR -> cubic15 -> resize1000 -> split -> abs/signed -> train-only global z-score -> ResNet1D",
+  "selected_user_ids": [
+    1,
+    2,
+    3
+  ],
+  "selected_files": 3300,
+  "dataset_signature": "fd864f165a9b6516",
+  "case_hashes": {
+    "bp_fs1000_legacy_abs": "708e1a9c9d07a260",
+    "bp_fs1000_signed": "2ee02d8b8d447c6f",
+    "bp_fs200_legacy_abs": "2bda2fbef9aee0e4",
+    "bp_fs200_signed": "9c81e33dfaf7be9a",
+    "bp_fs200_signed_iqr_absnorm": "9b0069ceb9bebaed",
+    "bp_fs200_signed_no_iqr": "f334c837fd4f6d8d",
+    "savgol_reference": "49b2a3704c7a4a17"
+  },
+  "case_study_context_hashes": {
+    "bp_fs1000_legacy_abs": "e1655cd660946c39",
+    "bp_fs1000_signed": "e1655cd660946c39",
+    "bp_fs200_legacy_abs": "e1655cd660946c39",
+    "bp_fs200_signed": "e1655cd660946c39",
+    "bp_fs200_signed_iqr_absnorm": "e1655cd660946c39",
+    "bp_fs200_signed_no_iqr": "e1655cd660946c39",
+    "savgol_reference": "e1655cd660946c39"
+  },
+  "study_context_hash": "e1655cd660946c39",
+  "source_content_signature": "f15d169d96437d55",
+  "runtime_fingerprint": {
+    "python": "3.13.13",
+    "numpy": "2.4.4",
+    "torch": "2.6.0+cu124",
+    "scipy": "1.17.1",
+    "torch_cuda": "12.4",
+    "cudnn": 90100
+  },
+  "effective_training_params": {
+    "batch": 32,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.001,
+    "epochs": 50
+  },
+  "source_equivalence_gate": {
+    "status": "passed",
+    "legacy_iqr_matches_source": true,
+    "signed_iqr_abs_matches_legacy": true,
+    "manual_legacy_normalization_matches_core": true,
+    "csi_dataset_preserves_signed_real_values": true
+  },
+  "python": "3.13.13 | packaged by Anaconda, Inc. | (main, Apr 14 2026, 06:19:41) [GCC 14.3.0]",
+  "platform": "Linux-6.8.0-48-generic-x86_64-with-glibc2.35",
+  "numpy": "2.4.4",
+  "torch": "2.6.0+cu124",
+  "cuda_available": true,
+  "cuda_device_name": "NVIDIA A100 80GB PCIe",
+  "created_unix": 1784994177.1321115,
+  "sample_order_hash": "8f006973292a4a89"
+}

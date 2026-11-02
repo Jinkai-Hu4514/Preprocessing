@@ -1,0 +1,86 @@
+{
+  "seed": 42,
+  "split": "GroupShuffleSplit(test_size=0.30)",
+  "train_size": 124,
+  "test_size": 56,
+  "train_groups": 16,
+  "test_groups": 8,
+  "train_classes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "test_classes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "conditions": {
+    "no_calibration": {
+      "test_acc": 0.5714285714285714,
+      "balanced_test_acc": 0.6057319223985891,
+      "feature_fisher_ratio_median": 0.053262309246067674,
+      "feature_count": 2124
+    },
+    "linear_reference": {
+      "test_acc": 0.5357142857142857,
+      "balanced_test_acc": 0.5871693121693121,
+      "feature_fisher_ratio_median": 0.08426815312549304,
+      "feature_count": 2124
+    },
+    "common_only": {
+      "test_acc": 0.5178571428571429,
+      "balanced_test_acc": 0.5314814814814814,
+      "feature_fisher_ratio_median": 0.07151480772215825,
+      "feature_count": 2124
+    },
+    "detrend_first50_only": {
+      "test_acc": 0.26785714285714285,
+      "balanced_test_acc": 0.24343033509700174,
+      "feature_fisher_ratio_median": 0.04697389497917785,
+      "feature_count": 2124
+    },
+    "detrend_fullspan50_only": {
+      "test_acc": 0.21428571428571427,
+      "balanced_test_acc": 0.20132275132275132,
+      "feature_fisher_ratio_median": 0.04831417551983522,
+      "feature_count": 2124
+    },
+    "robust_shared_first50": {
+      "test_acc": 0.5357142857142857,
+      "balanced_test_acc": 0.5493386243386243,
+      "feature_fisher_ratio_median": 0.06740680777809208,
+      "feature_count": 2124
+    },
+    "robust_window_limited": {
+      "test_acc": 0.21428571428571427,
+      "balanced_test_acc": 0.20965608465608468,
+      "feature_fisher_ratio_median": 0.05201791258363211,
+      "feature_count": 2124
+    },
+    "robust_fullspan50": {
+      "test_acc": 0.2857142857142857,
+      "balanced_test_acc": 0.2691798941798942,
+      "feature_fisher_ratio_median": 0.04647708845950893,
+      "feature_count": 2124
+    },
+    "robust_first50": {
+      "test_acc": 0.2857142857142857,
+      "balanced_test_acc": 0.2818783068783069,
+      "feature_fisher_ratio_median": 0.04998680716066735,
+      "feature_count": 2124
+    }
+  }
+}

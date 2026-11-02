@@ -1,0 +1,23 @@
+{
+  "file_name": "/home/test/bupt_hjk/sdp_dataset/xrf55/wifi/01_01_12.npy",
+  "frequency_index": 4,
+  "antenna_index": 5,
+  "selected_half_windows": [
+    1,
+    2,
+    5,
+    10,
+    25,
+    50
+  ],
+  "default_zoom_half_window": 5,
+  "default_zoom_frame_range": [
+    890,
+    990
+  ],
+  "default_zoom_time_seconds": [
+    4.45,
+    4.945
+  ],
+  "selection_rule": "channel with the largest absolute Hampel change under half_window=5 among diagnostic samples"
+}

@@ -1,0 +1,28 @@
+{
+  "linear_reference": {
+    "diagnostic_samples": 64,
+    "max_amplitude_preservation_error": 8.707102693961133e-06,
+    "adjacent_phase_jump_before_mean_rad": 0.7996232509613037,
+    "adjacent_phase_jump_after_mean_rad": 0.20320036212900444,
+    "adjacent_phase_jump_after_p90_rad": 0.36454674874182147,
+    "adjacent_phase_jump_after_gt_pi_over_2": 0.01937552662307341,
+    "adjacent_jump_before_late_to_early_ratio": 0.9972496628761292,
+    "adjacent_jump_after_late_to_early_ratio": 1.0006409132769876,
+    "phase_correction_early_quarter_mean_abs_rad": 240.48434071707538,
+    "phase_correction_late_quarter_mean_abs_rad": 1634.1637888972389,
+    "phase_correction_late_to_early_ratio": 6.795302280491507
+  },
+  "no_calibration": {
+    "diagnostic_samples": 64,
+    "max_amplitude_preservation_error": 0.0,
+    "adjacent_phase_jump_before_mean_rad": 0.7996232509613037,
+    "adjacent_phase_jump_after_mean_rad": 0.7996232509613037,
+    "adjacent_phase_jump_after_p90_rad": 1.0691442489624023,
+    "adjacent_phase_jump_after_gt_pi_over_2": 0.017514709860552955,
+    "adjacent_jump_before_late_to_early_ratio": 0.9972496628761292,
+    "adjacent_jump_after_late_to_early_ratio": 0.9972496628761292,
+    "phase_correction_early_quarter_mean_abs_rad": 0.0,
+    "phase_correction_late_quarter_mean_abs_rad": 0.0,
+    "phase_correction_late_to_early_ratio": 0.0
+  }
+}

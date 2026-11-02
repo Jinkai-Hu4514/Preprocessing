@@ -1,0 +1,13 @@
+{
+  "dataset": "gait",
+  "status": "ok",
+  "duration_sec": 181.62126421928406,
+  "samples": 180,
+  "diagnostic_samples": 64,
+  "probe_run": true,
+  "source_equivalence": {
+    "samples": 2,
+    "max_complex_absolute_error": 0.0,
+    "max_complex_relative_error": 0.0
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "generated_on": "2026-08-12",
+  "git_commit": "3063477",
+  "source_files": [
+    {
+      "file": "SDP/test_wider/result/preset_tests/condition_v2_all_presets_models_summary.csv",
+      "sha256": "4ae17e8d91ce00c4732ff93a23e3c9f187f5ea12239a511db72cfa5ebbae58b6"
+    },
+    {
+      "file": "SDP/test_gait/result/preset_tests/user_id_v2_all_presets_models_summary.csv",
+      "sha256": "710da8d01b7a957376bee5bee52111d3029acfc1548b32d6594f052f112c355f"
+    },
+    {
+      "file": "SDP/test_xrf55/result/preset_tests/train_norm_nosplit_repetition_all_presets_models_summary.csv",
+      "sha256": "3fe1ff5e599d5c20cf230a2914ce4494d1efdcadafc737ba8b1aceb77ab05972"
+    },
+    {
+      "file": "SDP/test_elderAL/result/preset_tests/source_action_position_all_presets_models_summary.csv",
+      "sha256": "b272fe6ebd1e6aedf3c885ed02b074b4c2931bcea411c1c77dd21e6c64359503"
+    },
+    {
+      "file": "SDP/test_wider/result/full_tests_new/widar_320_pipeline_optimized_mlpmodel_summary.csv",
+      "sha256": "23be1c2a52842e1f62f2f8de9f95e131b002158ab297a6eb712ed2c4cb4927fe"
+    },
+    {
+      "file": "SDP/test_xrf55/result/full_tests/xrf55_80_pipeline_resnet1d_summary.csv",
+      "sha256": "44d0ef16be22e884eb4ca8a377700cc5b979c0899646a00e5becde7fc3e66f8b"
+    },
+    {
+      "file": "SDP/test_elderAL/result/full_tests/elderAL_80_pipeline_csitime_summary.csv",
+      "sha256": "bc22138058966eee871438a0545e3af5073768e3a9f6213b0246d5911695779a"
+    },
+    {
+      "file": "SDP/test_gait/result/full_tests_new/gait_320_pipeline_optimized_mlpmodel_summary.csv",
+      "sha256": "0cd379a3b92261a912fd60699f2814caf9806336a4ceb2120072229fd79fdb23"
+    }
+  ],
+  "derived_files": [
+    "paper_figures/derived_data/stage1_model_preset_long.csv",
+    "paper_figures/derived_data/stage2_complete_configurations.csv",
+    "paper_figures/derived_data/matched_component_effects.csv"
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "fig-01",
+      "caption": "异构 CSI 预处理基准的两阶段评测框架。",
+      "claim": "本文将异构数据适配、语义感知的可插拔预处理、跨模型广度评测和代表模型下的细粒度评测组织为统一框架。",
+      "limitations": [
+        "该图是方法结构图，不编码性能结果。"
+      ],
+      "files": {
+        "png": "paper_figures/output/fig01_benchmark_framework.png",
+        "pdf": "paper_figures/output/fig01_benchmark_framework.pdf",
+        "png_sha256": "912b50226ffcf0c5a5514bcb7e73dc38091a382b09a10995cf13b7786df5f11e",
+        "pdf_sha256": "73e12cc6b0c14f4a99e82d4082e6bd29ea1e01d81d8b038977380073b4bbcc14"
+      },
+      "transformation": {
+        "script": "paper_figures/generate_available_figures.py",
+        "script_sha256": "2919011b7ad7bd0a1de0fe2bb702d174849e2acd19d9128c7a6d2a96cd8d3b1f"
+      }
+    },
+    {
+      "artifact_id": "fig-02",
+      "caption": "四个数据集上 19 种模型与 6 种预设管线的测试准确率及任务状态。",
+      "claim": "模型性能同时依赖数据集、下游模型和预处理 preset，且名义设计空间中存在失败与跳过任务。",
+      "limitations": [
+        "颜色仅表示 status=ok 的单随机种子 Accuracy。",
+        "failed/skipped 是覆盖率结果，不应解释为 0% Accuracy。",
+        "不同模型的参数规模与资源需求不同。"
+      ],
+      "files": {
+        "png": "paper_figures/output/fig02_stage1_model_preset_heatmaps.png",
+        "pdf": "paper_figures/output/fig02_stage1_model_preset_heatmaps.pdf",
+        "png_sha256": "97acd553025e363d9ba57fdbf324601c2c4e2530438c81a9f4d72dd62ed9f198",
+        "pdf_sha256": "fe7b72e7160924b29e3c0e0d53f2aa74adb427703884ff800cafccf384cfdf49"
+      },
+      "transformation": {
+        "script": "paper_figures/generate_available_figures.py",
+        "script_sha256": "2919011b7ad7bd0a1de0fe2bb702d174849e2acd19d9128c7a6d2a96cd8d3b1f"
+      }
+    },
+    {
+      "artifact_id": "fig-03",
+      "caption": "三个已完成数据集上全部细粒度预处理配置的测试准确率分布。",
+      "claim": "在固定模型、split 和训练设置时，仅改变预处理组合仍会导致宽幅的性能分布，而且分布形态具有明显数据集依赖性。",
+      "limitations": [
+        "每个点是 seed=42 下的配置条件，不是独立随机重复。",
+        "Gait 仅完成 253/320 且缺失非随机，因此未纳入。",
+        "不同数据集使用不同代表模型，图用于比较敏感性而非模型优劣。"
+      ],
+      "files": {
+        "png": "paper_figures/output/fig03_stage2_complete_distributions.png",
+        "pdf": "paper_figures/output/fig03_stage2_complete_distributions.pdf",
+        "png_sha256": "f1b9d47a759ecc07b9e0d385b2e4173799e24715307eff903111b0a9edc6b901",
+        "pdf_sha256": "6dd91c05991ba1f1084420aed547e569864202a07c283d18dcba5b152aec5761"
+      },
+      "transformation": {
+        "script": "paper_figures/generate_available_figures.py",
+        "script_sha256": "2919011b7ad7bd0a1de0fe2bb702d174849e2acd19d9128c7a6d2a96cd8d3b1f"
+      }
+    },
+    {
+      "artifact_id": "fig-04",
+      "caption": "三个完整数据集上预处理组件水平相对参考水平的匹配测试准确率差。",
+      "claim": "组件影响具有显著的数据集依赖性；某些失配组件会造成大幅退化，而异常值与插值的平均影响通常更小。",
+      "limitations": [
+        "bootstrap 单位是匹配的配置对，不代表训练随机性。",
+        "图中不提供显著性检验，也不把同一配置网格视为独立随机样本。",
+        "Gait 因 67 个配置非随机缺失而未纳入。",
+        "相位校准只适用于 Widar，因此相位行仅显示 Widar。"
+      ],
+      "files": {
+        "png": "paper_figures/output/fig04_matched_component_effects.png",
+        "pdf": "paper_figures/output/fig04_matched_component_effects.pdf",
+        "png_sha256": "46a5682f93fb2cd46241a69b9b0c4b658669ac1db94032e408fbdbb6469707bb",
+        "pdf_sha256": "7b0b14b5d958479747c4070d4fb15308f1c1150b9bb8f3c83d5de36e40b3dc63"
+      },
+      "transformation": {
+        "script": "paper_figures/generate_available_figures.py",
+        "script_sha256": "2919011b7ad7bd0a1de0fe2bb702d174849e2acd19d9128c7a6d2a96cd8d3b1f"
+      }
+    }
+  ],
+  "global_limitations": [
+    "主结果来自单随机种子 42。",
+    "Gait 细粒度实验当前为 253/320，未进入 Fig. 3–4。",
+    "所有置信区间若无特别说明均为配置层描述性 bootstrap，而非 seed CI。"
+  ]
+}

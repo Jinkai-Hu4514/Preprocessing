@@ -1,0 +1,12 @@
+{
+  "stage": "Hampel only",
+  "hampel_enabled": false,
+  "input_scalar_values": 891000000,
+  "output_scalar_values": 891000000,
+  "replaced_values": 0,
+  "replacement_rate": 0.0,
+  "waveform_correlation": 1.0,
+  "total_variation_retention": 1.0,
+  "dynamic_peak_retention": 1.0,
+  "important_note": "These identity metrics describe the skipped Hampel stage only. The following IQR step can still change CSI values."
+}

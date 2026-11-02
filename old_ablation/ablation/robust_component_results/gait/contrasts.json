@@ -1,0 +1,20 @@
+{
+  "test_accuracy": {
+    "linear_reference": 0.9586670938801666,
+    "robust_first50": 0.6731816725408523,
+    "no_calibration": 0.9583466837552067,
+    "common_only": 0.9029157321371355,
+    "detrend_first50_only": 0.7068247356616469,
+    "robust_shared_first50": 0.9359179750080102,
+    "robust_window_limited": 0.612624158923422,
+    "robust_fullspan50": 0.6783082345402115
+  },
+  "delta_pp": {
+    "robust_minus_linear": -28.54854213393143,
+    "robust_minus_common": -22.973405959628323,
+    "shared_minus_common": 3.300224287087472,
+    "window_limited_minus_robust": -6.055751361743022,
+    "fullspan50_minus_robust": 0.5126561999359236,
+    "common_minus_none": -5.543095161807122
+  }
+}

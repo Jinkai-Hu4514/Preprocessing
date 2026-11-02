@@ -1,0 +1,17 @@
+dataset,condition,metric,mean,ci_low,ci_high,n
+Widar,common_only,adjacent_phase_jump_late_mean_rad,0.8118212958797812,0.8036083976970986,0.8207289299461991,64
+Widar,common_only,late_relative_rotation_gt_pi_over_2,0.0,0.0,0.0,64
+Widar,detrend_first50_only,adjacent_phase_jump_late_mean_rad,1.438973417505622,1.3904106285888702,1.483732078364119,64
+Widar,detrend_first50_only,late_relative_rotation_gt_pi_over_2,0.42468677663324406,0.39789620992466856,0.448534449244399,64
+Widar,robust_first50,adjacent_phase_jump_late_mean_rad,1.443610810674727,1.3821885111508891,1.497836668533273,64
+Widar,robust_first50,late_relative_rotation_gt_pi_over_2,0.41852032503062353,0.3885896396515185,0.44702003409593455,64
+Widar,robust_shared_first50,adjacent_phase_jump_late_mean_rad,0.8118213005363941,0.8034769929014146,0.8209756988566369,64
+Widar,robust_shared_first50,late_relative_rotation_gt_pi_over_2,0.0,0.0,0.0,64
+Gait,common_only,adjacent_phase_jump_late_mean_rad,0.8197482461109757,0.807715313276276,0.8319338003406301,64
+Gait,common_only,late_relative_rotation_gt_pi_over_2,0.0,0.0,0.0,64
+Gait,detrend_first50_only,adjacent_phase_jump_late_mean_rad,1.5484315156936646,1.5283623515162617,1.5671289182268082,64
+Gait,detrend_first50_only,late_relative_rotation_gt_pi_over_2,0.49358320275316003,0.48587806096440533,0.5012208212344664,64
+Gait,robust_first50,adjacent_phase_jump_late_mean_rad,1.5516513958573341,1.5235805540345608,1.5761202001944183,64
+Gait,robust_first50,late_relative_rotation_gt_pi_over_2,0.4862170655604414,0.47395119103796207,0.49708221258759383,64
+Gait,robust_shared_first50,adjacent_phase_jump_late_mean_rad,0.8197003677487373,0.8075740488013252,0.8312054742360487,64
+Gait,robust_shared_first50,late_relative_rotation_gt_pi_over_2,0.001253487565937465,0.00030966802134271506,0.0026432192740877152,64

@@ -1,0 +1,3 @@
+﻿case,n_model_seeds,model_seeds,mean_best_val_acc,std_best_val_acc,mean_test_acc,std_test_acc,bootstrap_mean_test_ci_low,bootstrap_mean_test_ci_high,ci_scope,denoiser,fs_hz,iqr_mode,normalization_input,role
+bp_fs200_legacy_abs,1,42,0.6833333333333332,0.0,0.6257575757575757,0.0,0.6257575757575757,0.6257575757575757,training-randomness seeds only; not dataset-level CI,bandpass,200.0,legacy_abs,abs,main_2x2
+bp_fs200_signed,1,42,0.7166666666666667,0.0,0.646969696969697,0.0,0.646969696969697,0.646969696969697,training-randomness seeds only; not dataset-level CI,bandpass,200.0,signed,signed,main_2x2

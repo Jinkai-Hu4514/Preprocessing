@@ -1,0 +1,90 @@
+{
+  "status": "INCOMPLETE",
+  "official_complete": false,
+  "reasons": [
+    "valid artifact-backed results must be exactly the official 35: missing=[('bp_fs1000_legacy_abs', 42), ('bp_fs1000_legacy_abs', 49), ('bp_fs1000_legacy_abs', 514), ('bp_fs1000_legacy_abs', 654), ('bp_fs1000_legacy_abs', 886), ('bp_fs1000_signed', 42), ('bp_fs1000_signed', 49), ('bp_fs1000_signed', 514), ('bp_fs1000_signed', 654), ('bp_fs1000_signed', 886), ('bp_fs200_legacy_abs', 49), ('bp_fs200_legacy_abs', 514), ('bp_fs200_legacy_abs', 654), ('bp_fs200_legacy_abs', 886), ('bp_fs200_signed', 49), ('bp_fs200_signed', 514), ('bp_fs200_signed', 654), ('bp_fs200_signed', 886), ('bp_fs200_signed_iqr_absnorm', 42), ('bp_fs200_signed_iqr_absnorm', 49), ('bp_fs200_signed_iqr_absnorm', 514), ('bp_fs200_signed_iqr_absnorm', 654), ('bp_fs200_signed_iqr_absnorm', 886), ('bp_fs200_signed_no_iqr', 42), ('bp_fs200_signed_no_iqr', 49), ('bp_fs200_signed_no_iqr', 514), ('bp_fs200_signed_no_iqr', 654), ('bp_fs200_signed_no_iqr', 886), ('savgol_reference', 42), ('savgol_reference', 49), ('savgol_reference', 514), ('savgol_reference', 654), ('savgol_reference', 886)], unexpected=[]",
+    "key effect missing: sampling_effect_legacy",
+    "key effect missing: sampling_effect_signed",
+    "key effect missing: sign_effect_fs1000",
+    "key effect sign_effect_fs200 is not paired on all 5 official seeds",
+    "key effect missing: sampling_x_sign_interaction",
+    "key effect missing: signed_iqr_then_absnorm_vs_legacy_fs200",
+    "key effect missing: signed_norm_vs_signed_iqr_absnorm",
+    "key effect missing: remove_iqr_effect_signed_fs200",
+    "key effect missing: signed_fs200_vs_savgol"
+  ],
+  "study_context_hash": "e1655cd660946c39",
+  "expected": {
+    "case_ids": [
+      "bp_fs1000_legacy_abs",
+      "bp_fs1000_signed",
+      "bp_fs200_legacy_abs",
+      "bp_fs200_signed",
+      "bp_fs200_signed_iqr_absnorm",
+      "bp_fs200_signed_no_iqr",
+      "savgol_reference"
+    ],
+    "seeds": [
+      42,
+      49,
+      514,
+      654,
+      886
+    ],
+    "epochs": 50,
+    "user_count": 3,
+    "result_count": 35,
+    "key_effect_ids": [
+      "sampling_effect_legacy",
+      "sampling_effect_signed",
+      "sign_effect_fs1000",
+      "sign_effect_fs200",
+      "sampling_x_sign_interaction",
+      "signed_iqr_then_absnorm_vs_legacy_fs200",
+      "signed_norm_vs_signed_iqr_absnorm",
+      "remove_iqr_effect_signed_fs200",
+      "signed_fs200_vs_savgol"
+    ]
+  },
+  "observed": {
+    "case_hash_ids": [
+      "bp_fs1000_legacy_abs",
+      "bp_fs1000_signed",
+      "bp_fs200_legacy_abs",
+      "bp_fs200_signed",
+      "bp_fs200_signed_iqr_absnorm",
+      "bp_fs200_signed_no_iqr",
+      "savgol_reference"
+    ],
+    "valid_result_count": 2,
+    "case_seed_counts": {
+      "bp_fs1000_legacy_abs": 0,
+      "bp_fs1000_signed": 0,
+      "bp_fs200_legacy_abs": 1,
+      "bp_fs200_signed": 1,
+      "bp_fs200_signed_iqr_absnorm": 0,
+      "bp_fs200_signed_no_iqr": 0,
+      "savgol_reference": 0
+    },
+    "effect_seed_counts": {
+      "sampling_effect_legacy": 0,
+      "sampling_effect_signed": 0,
+      "sign_effect_fs1000": 0,
+      "sign_effect_fs200": 1,
+      "sampling_x_sign_interaction": 0,
+      "signed_iqr_then_absnorm_vs_legacy_fs200": 0,
+      "signed_norm_vs_signed_iqr_absnorm": 0,
+      "remove_iqr_effect_signed_fs200": 0,
+      "signed_fs200_vs_savgol": 0
+    },
+    "epochs": 50,
+    "effective_epochs": 50,
+    "user_count": 3,
+    "selected_user_ids": [
+      1,
+      2,
+      3
+    ],
+    "checkpoint_load_checked": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "data_path": "/home/test/bupt_hjk/sdp_dataset/xrf55/wifi",
+  "samples": 3300,
+  "user_limit": 3,
+  "frame_count_min": 1000,
+  "frame_count_median": 1000.0,
+  "frame_count_mean": 1000.0,
+  "frame_count_max": 1000,
+  "samples_with_expected_1000_frames": 3300,
+  "fraction_with_expected_1000_frames": 1.0,
+  "nominal_fs_hz": 200.0,
+  "nominal_action_duration_seconds": 5.0
+}

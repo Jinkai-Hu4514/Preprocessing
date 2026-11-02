@@ -1,0 +1,28 @@
+{
+  "repo_root": "/home/test/bupt_hjk",
+  "wsdp_source": "/home/test/bupt_hjk/SDP/SDP-Sensing-Data-Protocol-for-Scalable-Wireless-Sensing-main/src",
+  "elder_root": "/home/test/bupt_hjk/sdp_dataset/elderAL",
+  "xrf_root": "/home/test/bupt_hjk/sdp_dataset/xrf55/wifi",
+  "output_dir": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis",
+  "only": "all",
+  "source_min_length": 28,
+  "coefficient_lengths": {
+    "b": 9,
+    "a": 9
+  },
+  "xrf_complex_policy": "error",
+  "max_elder_files": 0,
+  "max_xrf_files": 0,
+  "xrf_user_count": 3,
+  "workers": 8,
+  "meaningful_negative_relative_tolerance": 1e-06,
+  "path_checks": {
+    "wsdp_source_exists": true,
+    "elder_root_exists": true,
+    "xrf_root_exists": true
+  },
+  "python": "3.13.13 | packaged by Anaconda, Inc. | (main, Apr 14 2026, 06:19:41) [GCC 14.3.0]",
+  "platform": "Linux-6.8.0-48-generic-x86_64-with-glibc2.35",
+  "numpy": "2.4.4",
+  "created_unix": 1784991457.108887
+}

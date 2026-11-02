@@ -1,0 +1,34 @@
+{
+  "protocol": "robust-components-minimal-v1",
+  "dataset": "gait",
+  "data_path": "/home/test/bupt_hjk/sdp_dataset/Gait_Dataset/CSI_Gait",
+  "sample_count": 18657,
+  "manifest_id": "df93b95bf928cc2900708ecdaedd884e553653148ae82a556b3b3f9205b61163",
+  "model": "mlpmodel",
+  "model_seed": 42,
+  "split_seed": 42,
+  "epochs": 60,
+  "batch_size": 32,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.001,
+  "device": "cuda:1",
+  "pipeline": {
+    "denoise": {
+      "method": "savgol",
+      "window_length": 7,
+      "polyorder": 3
+    },
+    "outliers": {
+      "method": "iqr",
+      "factor": 1.5
+    },
+    "phase": "condition",
+    "interpolate": {
+      "method": "nearest",
+      "target_K": 15
+    },
+    "normalize": "z-score [amplitude, phase]",
+    "length": 1500
+  },
+  "run_id": "c3c6d892d3c845509caa9c537d3efbeb9ae5e9699cda2559a0e6fbbfd5bde7f8"
+}

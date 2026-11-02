@@ -1,0 +1,66 @@
+{
+  "dataset": "elderAL",
+  "actual_records": 2405,
+  "total_retained_frames": 42147,
+  "timestamp_unit": "us",
+  "timestamp_unit_report": {
+    "requested_unit": "auto",
+    "selected_unit": "us",
+    "seconds_per_timestamp_unit": 1e-06,
+    "inference_method": "auto_unit_closest_to_5s_protocol_reference",
+    "reference_duration_seconds": 5.0,
+    "median_raw_duration": 4695512.0,
+    "median_duration_seconds_after_conversion": 4.695512,
+    "median_positive_interval_raw": 101033.0,
+    "median_positive_interval_seconds": 0.101033,
+    "warning": "auto 只推断 timestamp 的量纲，不代表设备采样率发生变化；若原始数据说明给出明确单位，请使用 --timestamp-unit 覆盖。"
+  },
+  "frame_count": {
+    "min": 1,
+    "median": 14.0,
+    "mean": 17.524740124740124,
+    "p90": 32.0,
+    "max": 121
+  },
+  "duration_seconds": {
+    "min": 0.0,
+    "median": 4.695239,
+    "mean": 8.05305439043659,
+    "p90": 5.9620087999999996,
+    "max": 4294.602147
+  },
+  "positive_frame_interval_seconds": {
+    "median": 0.10103299999999993,
+    "p90": 0.7565656000000004,
+    "p99": 2.2480492399999985,
+    "max": 4290.825428
+  },
+  "aggregate_retained_frame_frequency_hz": 2.051984169430681,
+  "default_window": {
+    "half_window": 5,
+    "full_window_frames": 11,
+    "median_of_sample_median_span_seconds": 2.4840859999999996,
+    "p90_of_sample_median_span_seconds": 4.6336305,
+    "median_fraction_of_sample_duration": 0.6081241663638276,
+    "samples_with_frames_le_full_window": 985,
+    "samples_with_frames_le_full_window_fraction": 0.4095634095634096
+  },
+  "frame_count_cause_diagnostic": {
+    "valid_samples": 2404,
+    "duration_cv": 15.355384127876512,
+    "frame_count_cv": 0.7238079751414015,
+    "median_interval_across_samples_cv": 1.023865943312606,
+    "frame_count_duration_correlation": -0.00512044698865079,
+    "decision": "mixed_or_inconclusive",
+    "decision_in_chinese": "采集时长、帧间隔和保存帧数之间不是单一关系；当前更像多种因素共同作用，不能只归因于采集时长或采样率。",
+    "thresholds": {
+      "roughly_fixed_duration_cv_max": 0.15,
+      "variable_duration_correlation_min": 0.8,
+      "stable_interval_cv_max": 0.25
+    }
+  },
+  "terminology": {
+    "aggregate_retained_frame_frequency_hz": "数据集中保存下来的有效帧频率，不等于设备配置采样率",
+    "window_span": "用真实 timestamp 计算窗口第一帧到最后一帧的时间差"
+  }
+}

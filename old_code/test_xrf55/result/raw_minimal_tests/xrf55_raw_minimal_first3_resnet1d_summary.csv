@@ -1,0 +1,2 @@
+﻿run_name,dataset,user_scope,model,seed,status,best_val_acc,test_acc,pipeline_steps,output_dir,duration_sec,error
+xrf55_raw_minimal_first3,xrf55,users_1_to_3,resnet1d,654,ok,0.890909090909091,0.8151515151515152,{},/home/test/bupt_hjk/SDP/test_xrf55/result/raw_minimal_tests/xrf55_raw_minimal_first3+resnet1d+seed654,232.63,

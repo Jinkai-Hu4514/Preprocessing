@@ -1,0 +1,645 @@
+{
+  "audit_version": 1,
+  "generated_at_utc": "2026-07-25T15:59:51.649239+00:00",
+  "inputs": {
+    "signal_dir": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis",
+    "sign_dir": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation",
+    "dataset_files_read": false
+  },
+  "status": "PRELIMINARY",
+  "official_complete": false,
+  "scientific_verdict": "incomplete",
+  "signal_official_status_path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/signal_study_summary.json",
+  "figures": {
+    "required_group_count": 4,
+    "required_groups": [
+      {
+        "group": "elder_bypass_overview",
+        "complete": true,
+        "files": [
+          {
+            "format": "png",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/elder_bandpass_bypass_overview.png",
+            "valid": true,
+            "reason": "ok"
+          },
+          {
+            "format": "pdf",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/elder_bandpass_bypass_overview.pdf",
+            "valid": true,
+            "reason": "ok"
+          },
+          {
+            "format": "svg",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/elder_bandpass_bypass_overview.svg",
+            "valid": true,
+            "reason": "ok"
+          }
+        ]
+      },
+      {
+        "group": "elder_before_after",
+        "complete": true,
+        "files": [
+          {
+            "format": "png",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/elder_bandpass_before_after.png",
+            "valid": true,
+            "reason": "ok"
+          },
+          {
+            "format": "pdf",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/elder_bandpass_before_after.pdf",
+            "valid": true,
+            "reason": "ok"
+          },
+          {
+            "format": "svg",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/elder_bandpass_before_after.svg",
+            "valid": true,
+            "reason": "ok"
+          }
+        ]
+      },
+      {
+        "group": "xrf_negative_distribution",
+        "complete": true,
+        "files": [
+          {
+            "format": "png",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/xrf55_denoiser_negative_distribution.png",
+            "valid": true,
+            "reason": "ok"
+          },
+          {
+            "format": "pdf",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/xrf55_denoiser_negative_distribution.pdf",
+            "valid": true,
+            "reason": "ok"
+          },
+          {
+            "format": "svg",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/xrf55_denoiser_negative_distribution.svg",
+            "valid": true,
+            "reason": "ok"
+          }
+        ]
+      },
+      {
+        "group": "sampling_sign_ablation",
+        "complete": true,
+        "files": [
+          {
+            "format": "png",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/figures/bandpass_sampling_sign_ablation.png",
+            "valid": true,
+            "reason": "ok"
+          },
+          {
+            "format": "pdf",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/figures/bandpass_sampling_sign_ablation.pdf",
+            "valid": true,
+            "reason": "ok"
+          },
+          {
+            "format": "svg",
+            "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/figures/bandpass_sampling_sign_ablation.svg",
+            "valid": true,
+            "reason": "ok"
+          }
+        ]
+      }
+    ],
+    "all_required_complete": true,
+    "supplemental_direction_figure": {
+      "present": true,
+      "complete_if_present": true,
+      "files": [
+        {
+          "format": "png",
+          "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/xrf55_rise_fall_and_abs_effect.png",
+          "valid": true,
+          "reason": "ok"
+        },
+        {
+          "format": "pdf",
+          "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/xrf55_rise_fall_and_abs_effect.pdf",
+          "valid": true,
+          "reason": "ok"
+        },
+        {
+          "format": "svg",
+          "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/xrf55_rise_fall_and_abs_effect.svg",
+          "valid": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "elderAL": {
+    "summary_path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/elder_bandpass_summary.json",
+    "sample_csv_path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/elder_bandpass_per_sample.csv",
+    "complete": false,
+    "mechanism_support": "not_evaluable",
+    "source_min_length": 28,
+    "valid_samples": 2404,
+    "bypass_samples": 2010,
+    "bypass_sample_rate": 0.8361064891846922,
+    "bypass_exact_matches": 2010,
+    "bypass_exact_match_rate": 1.0,
+    "high_bypass_support_threshold": 0.5
+  },
+  "xrf55_signal": {
+    "summary_path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/xrf55_negative_summary.json",
+    "method_csv_path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/xrf55_negative_method_summary.csv",
+    "complete": false,
+    "mechanism_support": "not_evaluable",
+    "methods": [
+      {
+        "method": "raw",
+        "samples": 3300,
+        "element_weighted_meaningful_rate": 0.0,
+        "mean_negative_energy_fraction": 0.0,
+        "element_weighted_abs_slope_direction_changed_or_lost_rate": 0.0
+      },
+      {
+        "method": "wavelet",
+        "samples": 3300,
+        "element_weighted_meaningful_rate": 4.848484848484849e-07,
+        "mean_negative_energy_fraction": 2.445015857036057e-11,
+        "element_weighted_abs_slope_direction_changed_or_lost_rate": 2.999954211934815e-07
+      },
+      {
+        "method": "butterworth_o5_c0.3",
+        "samples": 3300,
+        "element_weighted_meaningful_rate": 4.272727272727273e-06,
+        "mean_negative_energy_fraction": 1.5942251796026016e-09,
+        "element_weighted_abs_slope_direction_changed_or_lost_rate": 3.956052532629439e-06
+      },
+      {
+        "method": "savgol_w7_p3",
+        "samples": 3300,
+        "element_weighted_meaningful_rate": 1.277216610549944e-06,
+        "mean_negative_energy_fraction": 1.5012418337212558e-09,
+        "element_weighted_abs_slope_direction_changed_or_lost_rate": 9.797358536861397e-07
+      },
+      {
+        "method": "bandpass_fs1000",
+        "samples": 3300,
+        "element_weighted_meaningful_rate": 0.49759202356902354,
+        "mean_negative_energy_fraction": 0.5045685738496705,
+        "element_weighted_abs_slope_direction_changed_or_lost_rate": 0.4975924747416297
+      },
+      {
+        "method": "bandpass_fs200",
+        "samples": 3300,
+        "element_weighted_meaningful_rate": 0.49991047474747474,
+        "mean_negative_energy_fraction": 0.5032305715584755,
+        "element_weighted_abs_slope_direction_changed_or_lost_rate": 0.49960397225782854
+      },
+      {
+        "method": "hampel_w5_s3",
+        "samples": 3300,
+        "element_weighted_meaningful_rate": 0.0,
+        "mean_negative_energy_fraction": 0.0,
+        "element_weighted_abs_slope_direction_changed_or_lost_rate": 0.0
+      }
+    ],
+    "fully_analyzed_records": 3300,
+    "raw_nonnegative_records": 3300,
+    "selected_user_ids": [
+      1,
+      2,
+      3
+    ],
+    "bandpass_vs_other_negative_rate_separation": null
+  },
+  "training_ablation": {
+    "complete": false,
+    "settings_path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/experiment_settings.json",
+    "training_summary_path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/training_summary.csv",
+    "aggregate_path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/training_aggregate.csv",
+    "paired_effects_path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_effects.csv",
+    "paired_seed_effects_path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_seed_effects.csv",
+    "expected_cases": [
+      "bp_fs1000_legacy_abs",
+      "bp_fs1000_signed",
+      "bp_fs200_legacy_abs",
+      "bp_fs200_signed",
+      "bp_fs200_signed_iqr_absnorm",
+      "bp_fs200_signed_no_iqr",
+      "savgol_reference"
+    ],
+    "expected_seeds": [
+      42,
+      49,
+      514,
+      654,
+      886
+    ],
+    "cases": [
+      {
+        "case": "bp_fs1000_legacy_abs",
+        "completed_seeds": [],
+        "n_model_seeds": 0,
+        "mean_test_acc": null,
+        "std_test_acc": null
+      },
+      {
+        "case": "bp_fs1000_signed",
+        "completed_seeds": [],
+        "n_model_seeds": 0,
+        "mean_test_acc": null,
+        "std_test_acc": null
+      },
+      {
+        "case": "bp_fs200_legacy_abs",
+        "completed_seeds": [
+          42
+        ],
+        "n_model_seeds": 1,
+        "mean_test_acc": 0.6257575757575757,
+        "std_test_acc": 0.0
+      },
+      {
+        "case": "bp_fs200_signed",
+        "completed_seeds": [
+          42
+        ],
+        "n_model_seeds": 1,
+        "mean_test_acc": 0.646969696969697,
+        "std_test_acc": 0.0
+      },
+      {
+        "case": "bp_fs200_signed_iqr_absnorm",
+        "completed_seeds": [],
+        "n_model_seeds": 0,
+        "mean_test_acc": null,
+        "std_test_acc": null
+      },
+      {
+        "case": "bp_fs200_signed_no_iqr",
+        "completed_seeds": [],
+        "n_model_seeds": 0,
+        "mean_test_acc": null,
+        "std_test_acc": null
+      },
+      {
+        "case": "savgol_reference",
+        "completed_seeds": [],
+        "n_model_seeds": 0,
+        "mean_test_acc": null,
+        "std_test_acc": null
+      }
+    ],
+    "effects": [
+      {
+        "effect": "sampling_effect_legacy",
+        "seeds": [],
+        "n_paired_seeds": 0,
+        "per_seed_delta_test_acc": {},
+        "mean_delta_test_acc": null,
+        "std_delta_test_acc": null,
+        "positive_seed_fraction": null
+      },
+      {
+        "effect": "sampling_effect_signed",
+        "seeds": [],
+        "n_paired_seeds": 0,
+        "per_seed_delta_test_acc": {},
+        "mean_delta_test_acc": null,
+        "std_delta_test_acc": null,
+        "positive_seed_fraction": null
+      },
+      {
+        "effect": "sign_effect_fs1000",
+        "seeds": [],
+        "n_paired_seeds": 0,
+        "per_seed_delta_test_acc": {},
+        "mean_delta_test_acc": null,
+        "std_delta_test_acc": null,
+        "positive_seed_fraction": null
+      },
+      {
+        "effect": "sign_effect_fs200",
+        "seeds": [
+          42
+        ],
+        "n_paired_seeds": 1,
+        "per_seed_delta_test_acc": {
+          "42": 0.021212121212121238
+        },
+        "mean_delta_test_acc": 0.021212121212121238,
+        "std_delta_test_acc": 0.0,
+        "positive_seed_fraction": 1.0,
+        "bootstrap_ci_low": 0.021212121212121238,
+        "bootstrap_ci_high": 0.021212121212121238
+      },
+      {
+        "effect": "signed_iqr_then_absnorm_vs_legacy_fs200",
+        "seeds": [],
+        "n_paired_seeds": 0,
+        "per_seed_delta_test_acc": {},
+        "mean_delta_test_acc": null,
+        "std_delta_test_acc": null,
+        "positive_seed_fraction": null
+      },
+      {
+        "effect": "signed_norm_vs_signed_iqr_absnorm",
+        "seeds": [],
+        "n_paired_seeds": 0,
+        "per_seed_delta_test_acc": {},
+        "mean_delta_test_acc": null,
+        "std_delta_test_acc": null,
+        "positive_seed_fraction": null
+      },
+      {
+        "effect": "remove_iqr_effect_signed_fs200",
+        "seeds": [],
+        "n_paired_seeds": 0,
+        "per_seed_delta_test_acc": {},
+        "mean_delta_test_acc": null,
+        "std_delta_test_acc": null,
+        "positive_seed_fraction": null
+      },
+      {
+        "effect": "signed_fs200_vs_savgol",
+        "seeds": [],
+        "n_paired_seeds": 0,
+        "per_seed_delta_test_acc": {},
+        "mean_delta_test_acc": null,
+        "std_delta_test_acc": null,
+        "positive_seed_fraction": null
+      },
+      {
+        "effect": "sampling_x_sign_interaction",
+        "seeds": [],
+        "n_paired_seeds": 0,
+        "per_seed_delta_test_acc": {},
+        "mean_delta_test_acc": null,
+        "std_delta_test_acc": null,
+        "positive_seed_fraction": null
+      }
+    ],
+    "completion_status_path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/completion_status.json",
+    "official_complete": false,
+    "selected_user_ids": [
+      1,
+      2,
+      3
+    ],
+    "missing_case_seed_pairs": [
+      {
+        "case": "bp_fs1000_legacy_abs",
+        "seed": 42
+      },
+      {
+        "case": "bp_fs1000_legacy_abs",
+        "seed": 49
+      },
+      {
+        "case": "bp_fs1000_legacy_abs",
+        "seed": 514
+      },
+      {
+        "case": "bp_fs1000_legacy_abs",
+        "seed": 654
+      },
+      {
+        "case": "bp_fs1000_legacy_abs",
+        "seed": 886
+      },
+      {
+        "case": "bp_fs1000_signed",
+        "seed": 42
+      },
+      {
+        "case": "bp_fs1000_signed",
+        "seed": 49
+      },
+      {
+        "case": "bp_fs1000_signed",
+        "seed": 514
+      },
+      {
+        "case": "bp_fs1000_signed",
+        "seed": 654
+      },
+      {
+        "case": "bp_fs1000_signed",
+        "seed": 886
+      },
+      {
+        "case": "bp_fs200_legacy_abs",
+        "seed": 49
+      },
+      {
+        "case": "bp_fs200_legacy_abs",
+        "seed": 514
+      },
+      {
+        "case": "bp_fs200_legacy_abs",
+        "seed": 654
+      },
+      {
+        "case": "bp_fs200_legacy_abs",
+        "seed": 886
+      },
+      {
+        "case": "bp_fs200_signed",
+        "seed": 49
+      },
+      {
+        "case": "bp_fs200_signed",
+        "seed": 514
+      },
+      {
+        "case": "bp_fs200_signed",
+        "seed": 654
+      },
+      {
+        "case": "bp_fs200_signed",
+        "seed": 886
+      },
+      {
+        "case": "bp_fs200_signed_iqr_absnorm",
+        "seed": 42
+      },
+      {
+        "case": "bp_fs200_signed_iqr_absnorm",
+        "seed": 49
+      },
+      {
+        "case": "bp_fs200_signed_iqr_absnorm",
+        "seed": 514
+      },
+      {
+        "case": "bp_fs200_signed_iqr_absnorm",
+        "seed": 654
+      },
+      {
+        "case": "bp_fs200_signed_iqr_absnorm",
+        "seed": 886
+      },
+      {
+        "case": "bp_fs200_signed_no_iqr",
+        "seed": 42
+      },
+      {
+        "case": "bp_fs200_signed_no_iqr",
+        "seed": 49
+      },
+      {
+        "case": "bp_fs200_signed_no_iqr",
+        "seed": 514
+      },
+      {
+        "case": "bp_fs200_signed_no_iqr",
+        "seed": 654
+      },
+      {
+        "case": "bp_fs200_signed_no_iqr",
+        "seed": 886
+      },
+      {
+        "case": "savgol_reference",
+        "seed": 42
+      },
+      {
+        "case": "savgol_reference",
+        "seed": 49
+      },
+      {
+        "case": "savgol_reference",
+        "seed": 514
+      },
+      {
+        "case": "savgol_reference",
+        "seed": 654
+      },
+      {
+        "case": "savgol_reference",
+        "seed": 886
+      }
+    ],
+    "artifact_failures": []
+  },
+  "errors": [
+    {
+      "code": "signal_not_official_complete",
+      "message": "信号分析完成状态没有明确记录 official_complete=true。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/signal_study_summary.json"
+    },
+    {
+      "code": "elder_not_official_complete",
+      "message": "Elder 摘要没有明确记录 official_complete=true。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/elder_bandpass_summary.json"
+    },
+    {
+      "code": "xrf_not_official_complete",
+      "message": "XRF 摘要没有明确记录 official_complete=true。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/signal_analysis/xrf55_negative_summary.json"
+    },
+    {
+      "code": "training_not_official_complete",
+      "message": "训练完成状态没有明确记录 official_complete=true。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/completion_status.json"
+    },
+    {
+      "code": "training_seeds_incomplete",
+      "message": "官方 7×5 缺少 33 组：bp_fs1000_legacy_abs/seed=42, bp_fs1000_legacy_abs/seed=49, bp_fs1000_legacy_abs/seed=514, bp_fs1000_legacy_abs/seed=654, bp_fs1000_legacy_abs/seed=886, bp_fs1000_signed/seed=42, bp_fs1000_signed/seed=49, bp_fs1000_signed/seed=514 …",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/training_summary.csv"
+    },
+    {
+      "code": "training_aggregate_case_missing",
+      "message": "training_aggregate.csv 缺少 bp_fs1000_legacy_abs。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/training_aggregate.csv"
+    },
+    {
+      "code": "training_aggregate_case_missing",
+      "message": "training_aggregate.csv 缺少 bp_fs1000_signed。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/training_aggregate.csv"
+    },
+    {
+      "code": "training_aggregate_case_missing",
+      "message": "training_aggregate.csv 缺少 bp_fs200_signed_iqr_absnorm。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/training_aggregate.csv"
+    },
+    {
+      "code": "training_aggregate_case_missing",
+      "message": "training_aggregate.csv 缺少 bp_fs200_signed_no_iqr。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/training_aggregate.csv"
+    },
+    {
+      "code": "training_aggregate_case_missing",
+      "message": "training_aggregate.csv 缺少 savgol_reference。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/training_aggregate.csv"
+    },
+    {
+      "code": "paired_effect_missing",
+      "message": "paired_effects.csv 缺少 sampling_effect_legacy。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_effects.csv"
+    },
+    {
+      "code": "paired_effect_missing",
+      "message": "paired_effects.csv 缺少 sampling_effect_signed。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_effects.csv"
+    },
+    {
+      "code": "paired_effect_missing",
+      "message": "paired_effects.csv 缺少 sign_effect_fs1000。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_effects.csv"
+    },
+    {
+      "code": "paired_effect_seeds_incomplete",
+      "message": "sign_effect_fs200 的配对 seed 不是预注册五个。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_effects.csv"
+    },
+    {
+      "code": "paired_seed_effect_missing",
+      "message": "paired_seed_effects.csv 缺少 sign_effect_fs200/seed=49。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_seed_effects.csv"
+    },
+    {
+      "code": "paired_seed_effect_missing",
+      "message": "paired_seed_effects.csv 缺少 sign_effect_fs200/seed=514。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_seed_effects.csv"
+    },
+    {
+      "code": "paired_seed_effect_missing",
+      "message": "paired_seed_effects.csv 缺少 sign_effect_fs200/seed=654。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_seed_effects.csv"
+    },
+    {
+      "code": "paired_seed_effect_missing",
+      "message": "paired_seed_effects.csv 缺少 sign_effect_fs200/seed=886。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_seed_effects.csv"
+    },
+    {
+      "code": "paired_effect_missing",
+      "message": "paired_effects.csv 缺少 signed_iqr_then_absnorm_vs_legacy_fs200。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_effects.csv"
+    },
+    {
+      "code": "paired_effect_missing",
+      "message": "paired_effects.csv 缺少 signed_norm_vs_signed_iqr_absnorm。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_effects.csv"
+    },
+    {
+      "code": "paired_effect_missing",
+      "message": "paired_effects.csv 缺少 remove_iqr_effect_signed_fs200。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_effects.csv"
+    },
+    {
+      "code": "paired_effect_missing",
+      "message": "paired_effects.csv 缺少 signed_fs200_vs_savgol。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_effects.csv"
+    },
+    {
+      "code": "paired_effect_missing",
+      "message": "paired_effects.csv 缺少 sampling_x_sign_interaction。",
+      "path": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/paired_effects.csv"
+    }
+  ],
+  "warnings": []
+}

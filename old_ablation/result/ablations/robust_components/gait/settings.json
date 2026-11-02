@@ -1,0 +1,35 @@
+{
+  "question": "common median vs per-subcarrier detrend; first50 vs all frames",
+  "dataset": "gait",
+  "data_path": "/home/test/bupt_hjk/sdp_dataset/Gait_Dataset/CSI_Gait",
+  "fixed_prefix": {
+    "denoise": {
+      "method": "wavelet"
+    },
+    "outliers": {
+      "method": "iqr",
+      "factor": 1.5
+    }
+  },
+  "fixed_interpolation": {
+    "method": "nearest",
+    "target_K": 15
+  },
+  "fixed_normalization": "z-score after interpolation, explicit amplitude/phase",
+  "variants": [
+    "linear_reference",
+    "no_calibration",
+    "common_only",
+    "detrend_first50_only",
+    "detrend_all_frames_only",
+    "robust_first50",
+    "robust_all_frames"
+  ],
+  "split_seed": 42,
+  "model_seeds": [
+    42,
+    43,
+    44
+  ],
+  "all_frame_estimator": "exact all-pairs for T<=200; otherwise every frame paired with 12 evenly spaced full-action anchors"
+}

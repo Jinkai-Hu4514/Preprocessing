@@ -1,0 +1,45 @@
+{
+  "checkpoint_load_checked": true,
+  "candidate_rows": 2,
+  "valid_unique_results": 2,
+  "valid_result_keys": [
+    {
+      "case": "bp_fs200_legacy_abs",
+      "model_seed": 42
+    },
+    {
+      "case": "bp_fs200_signed",
+      "model_seed": 42
+    }
+  ],
+  "records": [
+    {
+      "valid": true,
+      "case": "bp_fs200_legacy_abs",
+      "model_seed": "42",
+      "config_hash": "2bda2fbef9aee0e4",
+      "study_context_hash": "e1655cd660946c39",
+      "checkpoint": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/runs/bp_fs200_legacy_abs/config_2bda2fbef9aee0e4/seed_42/best_checkpoint.pth",
+      "predictions_file": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/runs/bp_fs200_legacy_abs/config_2bda2fbef9aee0e4/seed_42/test_predictions.npz",
+      "test_sample_manifest": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/cases/bp_fs200_legacy_abs/config_2bda2fbef9aee0e4/test_sample_manifest.csv",
+      "manifest_rows": 660,
+      "prediction_rows": 660,
+      "checkpoint_load_checked": true,
+      "reasons": []
+    },
+    {
+      "valid": true,
+      "case": "bp_fs200_signed",
+      "model_seed": "42",
+      "config_hash": "9c81e33dfaf7be9a",
+      "study_context_hash": "e1655cd660946c39",
+      "checkpoint": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/runs/bp_fs200_signed/config_9c81e33dfaf7be9a/seed_42/best_checkpoint.pth",
+      "predictions_file": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/runs/bp_fs200_signed/config_9c81e33dfaf7be9a/seed_42/test_predictions.npz",
+      "test_sample_manifest": "/home/test/bupt_hjk/ablation/bandpass_server_results/sign_ablation/cases/bp_fs200_signed/config_9c81e33dfaf7be9a/test_sample_manifest.csv",
+      "manifest_rows": 660,
+      "prediction_rows": 660,
+      "checkpoint_load_checked": true,
+      "reasons": []
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+﻿effect,definition,model_seed,component_a_name,component_a_value,component_b_name,component_b_value,delta_test_acc
+sign_effect_fs200,bp_fs200_signed - bp_fs200_legacy_abs,42,bp_fs200_signed,0.646969696969697,bp_fs200_legacy_abs,0.6257575757575757,0.021212121212121238

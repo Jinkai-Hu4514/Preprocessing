@@ -1,0 +1,49 @@
+{
+  "sample_count": 18657,
+  "manifest_id": "df93b95bf928cc2900708ecdaedd884e553653148ae82a556b3b3f9205b61163",
+  "classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "label_counts": {
+    "0": 2400,
+    "1": 2400,
+    "2": 2400,
+    "3": 2400,
+    "4": 1858,
+    "5": 2400,
+    "6": 2399,
+    "7": 1200,
+    "8": 1200
+  },
+  "group_count": 24,
+  "first_files": [
+    "user1-1-1-r1.dat",
+    "user1-1-1-r2.dat",
+    "user1-1-1-r3.dat",
+    "user1-1-1-r4.dat",
+    "user1-1-1-r5.dat",
+    "user1-1-1-r6.dat",
+    "user1-1-10-r1.dat",
+    "user1-1-10-r2.dat",
+    "user1-1-10-r3.dat",
+    "user1-1-10-r4.dat",
+    "user1-1-10-r5.dat",
+    "user1-1-10-r6.dat",
+    "user1-1-100-r1.dat",
+    "user1-1-100-r2.dat",
+    "user1-1-100-r3.dat",
+    "user1-1-100-r4.dat",
+    "user1-1-100-r5.dat",
+    "user1-1-100-r6.dat",
+    "user1-1-11-r1.dat",
+    "user1-1-11-r2.dat"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "research_question": "Does ElderAL Hampel fail because an 11-frame neighborhood covers a large part of a short/irregular action sample?",
+  "sampling_rate_correction": "Retained frame frequency is not treated as an adaptive device sampling rate. Physical spans are measured from timestamps.",
+  "windows": [
+    1,
+    2,
+    3,
+    5
+  ],
+  "full_windows": [
+    3,
+    5,
+    7,
+    11
+  ],
+  "conditions": [
+    {
+      "condition": "no_hampel",
+      "half_window": null,
+      "full_window_frames": 0
+    },
+    {
+      "condition": "hampel_w1",
+      "half_window": 1,
+      "full_window_frames": 3
+    },
+    {
+      "condition": "hampel_w2",
+      "half_window": 2,
+      "full_window_frames": 5
+    },
+    {
+      "condition": "hampel_w3",
+      "half_window": 3,
+      "full_window_frames": 7
+    },
+    {
+      "condition": "hampel_w5",
+      "half_window": 5,
+      "full_window_frames": 11
+    }
+  ],
+  "fixed_pipeline": {
+    "n_sigma": 3.0,
+    "outliers": {
+      "method": "iqr",
+      "factor": 1.5
+    },
+    "normalize": {
+      "method": "min-max"
+    },
+    "interpolate": {
+      "method": "linear",
+      "target_K": 64
+    },
+    "padding_length": 80,
+    "model": "csitime"
+  },
+  "training": {
+    "physical_gpu": 0,
+    "logical_device": "cuda:0",
+    "seed": 42,
+    "epochs": 20,
+    "test_split": 0.3,
+    "val_split_within_heldout": 0.5
+  },
+  "timestamp_unit_requested": "auto",
+  "diagnostic_samples": 162,
+  "max_samples_debug": 0,
+  "data_path": "/home/test/bupt_hjk/sdp_dataset/elderAL"
+}

@@ -1,0 +1,22 @@
+{
+  "seed": 42,
+  "dataset": "all",
+  "prefix": "none",
+  "max_samples_gait": 180,
+  "max_samples_widar": 180,
+  "diagnostic_samples": 64,
+  "equivalence_samples": 2,
+  "variants": [
+    "no_calibration",
+    "linear_reference",
+    "common_only",
+    "detrend_first50_only",
+    "detrend_fullspan50_only",
+    "robust_shared_first50",
+    "robust_window_limited",
+    "robust_fullspan50",
+    "robust_first50"
+  ],
+  "probe": "ExtraTreesClassifier, one GroupShuffleSplit seed",
+  "output_dir": "/home/test/bupt_hjk/ablation/robust_rootcause_results"
+}

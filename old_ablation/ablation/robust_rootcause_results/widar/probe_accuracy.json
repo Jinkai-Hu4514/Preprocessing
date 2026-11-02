@@ -1,0 +1,74 @@
+{
+  "seed": 42,
+  "split": "GroupShuffleSplit(test_size=0.30)",
+  "train_size": 123,
+  "test_size": 57,
+  "train_groups": 70,
+  "test_groups": 31,
+  "train_classes": [
+    0,
+    1,
+    2
+  ],
+  "test_classes": [
+    0,
+    1,
+    2
+  ],
+  "conditions": {
+    "no_calibration": {
+      "test_acc": 0.3157894736842105,
+      "balanced_test_acc": 0.3302313755403001,
+      "feature_fisher_ratio_median": 0.01222380437646172,
+      "feature_count": 2124
+    },
+    "linear_reference": {
+      "test_acc": 0.2807017543859649,
+      "balanced_test_acc": 0.2981947622679888,
+      "feature_fisher_ratio_median": 0.007754179795053383,
+      "feature_count": 2124
+    },
+    "common_only": {
+      "test_acc": 0.3157894736842105,
+      "balanced_test_acc": 0.33633358759216875,
+      "feature_fisher_ratio_median": 0.01098964040032219,
+      "feature_count": 2124
+    },
+    "detrend_first50_only": {
+      "test_acc": 0.38596491228070173,
+      "balanced_test_acc": 0.38962623951182307,
+      "feature_fisher_ratio_median": 0.012065598690761292,
+      "feature_count": 2124
+    },
+    "detrend_fullspan50_only": {
+      "test_acc": 0.38596491228070173,
+      "balanced_test_acc": 0.3973557081108569,
+      "feature_fisher_ratio_median": 0.008840602584728277,
+      "feature_count": 2124
+    },
+    "robust_shared_first50": {
+      "test_acc": 0.24561403508771928,
+      "balanced_test_acc": 0.25680142384947874,
+      "feature_fisher_ratio_median": 0.011338220432734821,
+      "feature_count": 2124
+    },
+    "robust_window_limited": {
+      "test_acc": 0.2982456140350877,
+      "balanced_test_acc": 0.3326214085939486,
+      "feature_fisher_ratio_median": 0.008479005821585669,
+      "feature_count": 2124
+    },
+    "robust_fullspan50": {
+      "test_acc": 0.2631578947368421,
+      "balanced_test_acc": 0.2914314772438342,
+      "feature_fisher_ratio_median": 0.0076953664837544605,
+      "feature_count": 2124
+    },
+    "robust_first50": {
+      "test_acc": 0.3333333333333333,
+      "balanced_test_acc": 0.3461479786422578,
+      "feature_fisher_ratio_median": 0.010158393012686204,
+      "feature_count": 2124
+    }
+  }
+}

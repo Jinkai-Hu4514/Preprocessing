@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="670.79952pt" height="281.99947pt" viewBox="0 0 670.79952 281.99947" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-08T21:58:22.312828</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 281.99947 
+L 670.79952 281.99947 
+L 670.79952 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 47.131797 250.64097 
+L 663.59952 250.64097 
+L 663.59952 29.388524 
+L 47.131797 29.388524 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="mb0b3d4de6a" d="M 0 0 
+L 0 3.5 
+" style="stroke: #202020; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mb0b3d4de6a" x="92.413506" y="250.64097" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; fill: #202020" transform="translate(74.969756 264.69597)">CSI values</text>
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; fill: #202020" transform="translate(78.867881 273.07322)">replaced</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#mb0b3d4de6a" x="154.443245" y="250.64097" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; fill: #202020" transform="translate(129.360745 264.69597)">Frames with ≥1</text>
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; fill: #202020" transform="translate(134.899495 273.07322)">replacement</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#mb0b3d4de6a" x="216.472983" y="250.64097" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; fill: #202020" transform="translate(195.814233 264.69597)">High-change</text>
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; fill: #202020" transform="translate(195.702983 273.08822)">CSI replaced</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#mb0b3d4de6a" x="278.502722" y="250.64097" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; fill: #202020" transform="translate(263.233972 264.69597)">Temporal</text>
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; fill: #202020" transform="translate(249.291472 273.07322)">variation removed</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#mb0b3d4de6a" x="340.53246" y="250.64097" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; fill: #202020" transform="translate(317.979335 264.69597)">Peak intensity</text>
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; fill: #202020" transform="translate(326.538085 273.08822)">removed</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#mb0b3d4de6a" x="432.228595" y="250.64097" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="432.228595" y="264.69597" transform="rotate(-0 432.228595 264.69597)">Walking</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#mb0b3d4de6a" x="494.258334" y="250.64097" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="494.258334" y="264.69597" transform="rotate(-0 494.258334 264.69597)">Fall</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#mb0b3d4de6a" x="556.288072" y="250.64097" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="556.288072" y="264.69597" transform="rotate(-0 556.288072 264.69597)">Static</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#mb0b3d4de6a" x="618.317811" y="250.64097" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="618.317811" y="264.69597" transform="rotate(-0 618.317811 264.69597)">Sleeping</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_10">
+      <defs>
+       <path id="m05c0bee97d" d="M 0 0 
+L -3.5 0 
+" style="stroke: #202020; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m05c0bee97d" x="47.131797" y="250.64097" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 8.5px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: end; fill: #202020" x="40.131797" y="253.592064" transform="rotate(-0 40.131797 253.592064)">0%</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#m05c0bee97d" x="47.131797" y="211.824752" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 8.5px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: end; fill: #202020" x="40.131797" y="214.775846" transform="rotate(-0 40.131797 214.775846)">20%</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m05c0bee97d" x="47.131797" y="173.008533" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 8.5px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: end; fill: #202020" x="40.131797" y="175.959627" transform="rotate(-0 40.131797 175.959627)">40%</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#m05c0bee97d" x="47.131797" y="134.192315" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-size: 8.5px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: end; fill: #202020" x="40.131797" y="137.143408" transform="rotate(-0 40.131797 137.143408)">60%</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m05c0bee97d" x="47.131797" y="95.376096" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_14">
+      <text style="font-size: 8.5px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: end; fill: #202020" x="40.131797" y="98.32719" transform="rotate(-0 40.131797 98.32719)">80%</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#m05c0bee97d" x="47.131797" y="56.559877" style="fill: #202020; stroke: #202020; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <text style="font-size: 8.5px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: end; fill: #202020" x="40.131797" y="59.510971" transform="rotate(-0 40.131797 59.510971)">100%</text>
+     </g>
+    </g>
+    <g id="text_16">
+     <text style="font-size: 10px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="14.14375" y="140.014747" transform="rotate(-90 14.14375 140.014747)">Percentage (%)</text>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 75.153057 250.64097 
+L 109.673955 250.64097 
+L 109.673955 217.01166 
+L 75.153057 217.01166 
+z
+" clip-path="url(#p772b88184d)" style="fill: #d9d9d9; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 137.182796 250.64097 
+L 171.703694 250.64097 
+L 171.703694 72.380964 
+L 137.182796 72.380964 
+z
+" clip-path="url(#p772b88184d)" style="fill: #d9d9d9; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 199.212534 250.64097 
+L 233.733432 250.64097 
+L 233.733432 186.492393 
+L 199.212534 186.492393 
+z
+" clip-path="url(#p772b88184d)" style="fill: #d9d9d9; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 261.242273 250.64097 
+L 295.763171 250.64097 
+L 295.763171 119.388062 
+L 261.242273 119.388062 
+z
+" clip-path="url(#p772b88184d)" style="fill: #d9d9d9; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 323.272011 250.64097 
+L 357.792909 250.64097 
+L 357.792909 115.865675 
+L 323.272011 115.865675 
+z
+" clip-path="url(#p772b88184d)" style="fill: #d9d9d9; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 414.968146 250.64097 
+L 449.489044 250.64097 
+L 449.489044 58.385547 
+L 414.968146 58.385547 
+z
+" clip-path="url(#p772b88184d)" style="fill: #9edcf0; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 476.997885 250.64097 
+L 511.518783 250.64097 
+L 511.518783 86.950914 
+L 476.997885 86.950914 
+z
+" clip-path="url(#p772b88184d)" style="fill: #9edcf0; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 539.027623 250.64097 
+L 573.548521 250.64097 
+L 573.548521 169.77593 
+L 539.027623 169.77593 
+z
+" clip-path="url(#p772b88184d)" style="fill: #9edcf0; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 601.057362 250.64097 
+L 635.57826 250.64097 
+L 635.57826 163.655096 
+L 601.057362 163.655096 
+z
+" clip-path="url(#p772b88184d)" style="fill: #9edcf0; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 47.131797 250.64097 
+L 47.131797 29.388524 
+" style="fill: none; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 663.59952 250.64097 
+L 663.59952 29.388524 
+" style="fill: none; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 47.131797 250.64097 
+L 663.59952 250.64097 
+" style="fill: none; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 47.131797 29.388524 
+L 663.59952 29.388524 
+" style="fill: none; stroke: #303030; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 8.2px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="92.413506" y="212.540493" transform="rotate(-0 92.413506 212.540493)">17.33%</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8.2px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="154.443245" y="67.909798" transform="rotate(-0 154.443245 67.909798)">91.85%</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 8.2px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="216.472983" y="182.021226" transform="rotate(-0 216.472983 182.021226)">33.05%</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 8.2px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="278.502722" y="114.916896" transform="rotate(-0 278.502722 114.916896)">67.63%</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 8.2px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="340.53246" y="111.394509" transform="rotate(-0 340.53246 111.394509)">69.44%</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 8.2px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="432.228595" y="53.91438" transform="rotate(-0 432.228595 53.91438)">99.1%</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 8.2px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="494.258334" y="82.479748" transform="rotate(-0 494.258334 82.479748)">84.3%</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 8.2px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="556.288072" y="165.304764" transform="rotate(-0 556.288072 165.304764)">41.7%</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 8.2px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="618.317811" y="159.18393" transform="rotate(-0 618.317811 159.18393)">44.8%</text>
+   </g>
+   <g id="text_26">
+    <!-- Waveform correlation, $r$ = 0.766 -->
+    <g style="fill: #202020" transform="translate(160.185983 43.099406)">
+     <text>
+      <tspan x="0" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">W</tspan>
+      <tspan x="8.111191" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">a</tspan>
+      <tspan x="11.925507" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">v</tspan>
+      <tspan x="16.222382" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">e</tspan>
+      <tspan x="20.036697" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">f</tspan>
+      <tspan x="22.898483" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">o</tspan>
+      <tspan x="27.195358" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">r</tspan>
+      <tspan x="30.057144" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">m</tspan>
+      <tspan x="36.741638" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020"> </tspan>
+      <tspan x="38.890076" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">c</tspan>
+      <tspan x="42.704391" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">o</tspan>
+      <tspan x="47.001266" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">r</tspan>
+      <tspan x="49.863052" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">r</tspan>
+      <tspan x="52.724838" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">e</tspan>
+      <tspan x="56.539154" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">l</tspan>
+      <tspan x="58.926773" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">a</tspan>
+      <tspan x="62.741089" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">t</tspan>
+      <tspan x="65.128708" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">i</tspan>
+      <tspan x="67.516327" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">o</tspan>
+      <tspan x="71.813202" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">n</tspan>
+      <tspan x="76.110077" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">,</tspan>
+      <tspan x="78.258514" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020"> </tspan>
+      <tspan x="83.940125" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020"> </tspan>
+      <tspan x="86.088562" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">=</tspan>
+      <tspan x="90.935135" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020"> </tspan>
+      <tspan x="93.083572" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">0</tspan>
+      <tspan x="97.380447" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">.</tspan>
+      <tspan x="99.528885" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">7</tspan>
+      <tspan x="103.82576" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">6</tspan>
+      <tspan x="108.122635" y="-0.03125" style="font-size: 8.6px; font-family: 'Times New Roman'; fill: #202020">6</tspan>
+      <tspan x="80.406952" y="-0.03125" style="font-style: oblique; font-size: 8.6px; font-family: 'DejaVu Sans'; fill: #202020">r</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="legend_1">
+    <g id="patch_16">
+     <path d="M 227.714096 17.32 
+L 243.554096 17.32 
+L 243.554096 11.16 
+L 227.714096 11.16 
+z
+" style="fill: #d9d9d9; stroke: #303030; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_27">
+     <!-- Hampel effect ($N=162$) -->
+     <g style="fill: #202020" transform="translate(247.954096 17.32)">
+      <text>
+       <tspan x="0" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">H</tspan>
+       <tspan x="6.352814" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">a</tspan>
+       <tspan x="10.257278" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">m</tspan>
+       <tspan x="17.099762" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">p</tspan>
+       <tspan x="21.498199" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">e</tspan>
+       <tspan x="25.402664" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">l</tspan>
+       <tspan x="27.84671" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020"> </tspan>
+       <tspan x="30.045929" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">e</tspan>
+       <tspan x="33.950394" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">f</tspan>
+       <tspan x="36.879822" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">f</tspan>
+       <tspan x="39.80925" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">e</tspan>
+       <tspan x="43.713715" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">c</tspan>
+       <tspan x="47.618179" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">t</tspan>
+       <tspan x="50.062225" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020"> </tspan>
+       <tspan x="52.261444" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">(</tspan>
+       <tspan x="89.360349" y="-0.46875" style="font-size: 8.8px; font-family: 'Times New Roman'; fill: #202020">)</tspan>
+       <tspan x="55.190872" y="-0.46875" style="font-style: oblique; font-size: 8.8px; font-family: 'DejaVu Sans'; fill: #202020">N</tspan>
+       <tspan x="63.48519" y="-0.46875" style="font-size: 8.8px; font-family: 'DejaVu Sans'; fill: #202020">=</tspan>
+       <tspan x="72.569852" y="-0.46875" style="font-size: 8.8px; font-family: 'DejaVu Sans'; fill: #202020">1</tspan>
+       <tspan x="78.166684" y="-0.46875" style="font-size: 8.8px; font-family: 'DejaVu Sans'; fill: #202020">6</tspan>
+       <tspan x="83.763516" y="-0.46875" style="font-size: 8.8px; font-family: 'DejaVu Sans'; fill: #202020">2</tspan>
+      </text>
+     </g>
+    </g>
+    <g id="patch_17">
+     <path d="M 356.194096 17.32 
+L 372.034096 17.32 
+L 372.034096 11.16 
+L 356.194096 11.16 
+z
+" style="fill: #9edcf0; stroke: #303030; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_28">
+     <text style="font-size: 8.8px; font-family: 'Times New Roman', 'DejaVu Serif', serif; text-anchor: start; fill: #202020" x="376.434096" y="17.32" transform="rotate(-0 376.434096 17.32)">Window coverage (11 frames)</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p772b88184d">
+   <rect x="47.131797" y="29.388524" width="616.467723" height="221.252446"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,32 @@
+{
+  "use_abs_before_zscore": false,
+  "stat_axes": [
+    0,
+    1
+  ],
+  "mean_shape": [
+    1,
+    1,
+    15,
+    9
+  ],
+  "std_shape": [
+    1,
+    1,
+    15,
+    9
+  ],
+  "train_mean_min": -0.005345823571399129,
+  "train_mean_max": 0.012766994595272542,
+  "train_std_min": 0.4236414395765157,
+  "train_std_max": 1.378692965091253,
+  "implementation": "manual signed train-only zscore",
+  "train_size": 1980,
+  "val_size": 660,
+  "test_size": 660,
+  "post_normalization_negative_rate": {
+    "train": 0.5004969584736252,
+    "validation": 0.5007561952861953,
+    "test": 0.5005592704826038
+  }
+}

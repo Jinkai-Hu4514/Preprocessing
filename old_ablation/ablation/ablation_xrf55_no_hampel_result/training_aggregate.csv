@@ -1,0 +1,2 @@
+﻿condition,hampel_enabled,seed_count,model_seeds,best_val_acc_mean,best_val_acc_std,test_acc_mean,test_acc_std
+no_hampel,False,1,42,0.9075757575757575,0.0,0.8469696969696969,0.0

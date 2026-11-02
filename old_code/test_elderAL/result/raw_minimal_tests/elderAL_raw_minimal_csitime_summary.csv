@@ -1,0 +1,2 @@
+﻿run_name,dataset,user_scope,model,seed,status,best_val_acc,test_acc,pipeline_steps,output_dir,duration_sec,error
+elderAL_raw_minimal,elderAL,all_users,csitime,886,ok,0.9736842105263157,1.0,{},/home/test/bupt_hjk/SDP/test_elderAL/result/raw_minimal_tests/elderAL_raw_minimal+csitime+seed886,51.17,

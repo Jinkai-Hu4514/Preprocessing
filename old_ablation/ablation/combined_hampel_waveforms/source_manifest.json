@@ -1,0 +1,47 @@
+{
+  "elderal": {
+    "panels": [
+      "Static",
+      "Walking",
+      "Fall",
+      "Sleep",
+      "Drinking",
+      "Watching TV"
+    ],
+    "condition": "11-frame Hampel (half-window=5, n_sigma=3)",
+    "sources": [
+      "E:\\py_code\\bupt_hjk\\sdp_test\\My_sdp_test\\ablation\\ablation_elder_hampel_result\\figures\\figure_5_action_0_static_representative_waveforms.pdf",
+      "E:\\py_code\\bupt_hjk\\sdp_test\\My_sdp_test\\ablation\\ablation_elder_hampel_result\\figures\\figure_5_representative_waveforms.pdf",
+      "E:\\py_code\\bupt_hjk\\sdp_test\\My_sdp_test\\ablation\\ablation_elder_hampel_result\\figures\\figure_5_action_2_fall_representative_waveforms.pdf",
+      "E:\\py_code\\bupt_hjk\\sdp_test\\My_sdp_test\\ablation\\ablation_elder_hampel_result\\figures\\figure_5_action_3_sleep_representative_waveforms.pdf",
+      "E:\\py_code\\bupt_hjk\\sdp_test\\My_sdp_test\\ablation\\ablation_elder_hampel_result\\figures\\figure_5_action_5_drink_representative_waveforms.pdf",
+      "E:\\py_code\\bupt_hjk\\sdp_test\\My_sdp_test\\ablation\\ablation_elder_hampel_result\\figures\\figure_5_action_6_sit_TV_representative_waveforms.pdf"
+    ]
+  },
+  "xrf55": {
+    "panels": [
+      "3 frames, 15 ms",
+      "5 frames, 25 ms",
+      "11 frames, 55 ms (default)",
+      "21 frames, 105 ms",
+      "51 frames, 255 ms",
+      "101 frames, 505 ms"
+    ],
+    "sources": [
+      "E:\\py_code\\bupt_hjk\\sdp_test\\My_sdp_test\\ablation\\ablation_xrf55_hampel_result\\figures\\figure_3_representative_waveforms.pdf"
+    ]
+  },
+  "rendering": {
+    "normalization": "Each channel uses the mean and standard deviation of its archived raw waveform path.",
+    "legend": [
+      "Raw",
+      "Hampel",
+      "Replaced"
+    ],
+    "formats": [
+      "png",
+      "pdf",
+      "svg"
+    ]
+  }
+}

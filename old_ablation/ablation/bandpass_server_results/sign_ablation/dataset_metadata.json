@@ -1,0 +1,11 @@
+{
+  "discovered_selected_files": 3300,
+  "selected_user_ids": [
+    1,
+    2,
+    3
+  ],
+  "dataset_signature": "fd864f165a9b6516",
+  "input_policy": "genuinely complex CSI is rejected because a signed-value ablation is undefined for complex numbers",
+  "loading_strategy": "workers receive paths and stream processed arrays to memmap; the full raw dataset is never retained in the parent process"
+}

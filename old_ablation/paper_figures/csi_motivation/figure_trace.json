@@ -1,0 +1,44 @@
+{
+  "artifact": "csi_preprocessing_motivation",
+  "figure_table_trace": [
+    {
+      "source_data": {
+        "dataset_id": "user-provided-conceptual-description",
+        "file": "user attachment: codex-clipboard-46cd2569-5e43-41b2-8fcb-9e0268f98eec.png"
+      },
+      "transformation": {
+        "script": "paper_figures\\csi_motivation\\build_figure.py",
+        "hash": "c4a8eea32ecf7a752bc57af6d33dc30279f3f0b1b5582a41479279c877267653"
+      },
+      "caption_claim": "Conceptual motivation for controlled comparisons of CSI preprocessing and for evaluating dependence on downstream model architecture.",
+      "supported_manuscript_claims": [],
+      "limitations": [
+        "All waveforms are synthetic illustrations, not measurements.",
+        "Score symbols do not encode numeric values, ordering, or significance.",
+        "Panel (b) depicts possible changes to representative signal structure; it does not guarantee any operation produces a particular outcome.",
+        "No new empirical conclusions about recognition performance are established."
+      ]
+    }
+  ],
+  "pdf_width_inches": 7.16,
+  "pdf_height_inches": 5.477399999999999,
+  "minimum_font_pt": 8.557632,
+  "main_font_pt": 9.27936,
+  "palette": {
+    "ink": "#252B33",
+    "muted": "#525D69",
+    "rule": "#C9CFD5",
+    "pale": "#F5F6F8",
+    "blue": "#0072B2",
+    "orange": "#B76500",
+    "purple": "#8056A3",
+    "blue_bg": "#EDF5FA",
+    "orange_bg": "#FCF3E8",
+    "purple_bg": "#F4EFF8"
+  },
+  "languages": [
+    "en",
+    "zh"
+  ],
+  "editable_drawio_pages": 2
+}

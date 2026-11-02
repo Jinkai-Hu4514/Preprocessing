@@ -1,0 +1,2 @@
+﻿effect,definition,n_paired_seeds,seeds,mean_delta_test_acc,std_delta_test_acc,bootstrap_ci_low,bootstrap_ci_high,positive_seed_fraction,ci_scope
+sign_effect_fs200,bp_fs200_signed - bp_fs200_legacy_abs,1,42,0.021212121212121238,0.0,0.021212121212121238,0.021212121212121238,1.0,training-randomness seeds only; not dataset-level CI

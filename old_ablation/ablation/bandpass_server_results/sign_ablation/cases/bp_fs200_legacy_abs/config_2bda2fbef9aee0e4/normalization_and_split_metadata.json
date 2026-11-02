@@ -1,0 +1,13 @@
+{
+  "implementation": "exact wsdp.core._create_xrf55_repetition_split",
+  "use_abs_before_zscore": true,
+  "statistics": "training repetitions only, axes=(sample,time)",
+  "train_size": 1980,
+  "val_size": 660,
+  "test_size": 660,
+  "post_normalization_negative_rate": {
+    "train": 0.6290280284324729,
+    "validation": 0.6263959147025814,
+    "test": 0.6280436363636364
+  }
+}

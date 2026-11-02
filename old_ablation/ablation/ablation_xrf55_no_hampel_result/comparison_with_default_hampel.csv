@@ -1,0 +1,2 @@
+﻿model_seed,no_hampel_test_acc,default_hampel_11_frames_test_acc,no_hampel_minus_hampel_percentage_points,same_split_seed,comparison_note
+42,0.8469696969696969,0.8318181818181818,1.5151515151515138,True,"Both pipelines keep IQR1.5, train-split z-score, cubic15 and ResNet1D; only Hampel presence differs."

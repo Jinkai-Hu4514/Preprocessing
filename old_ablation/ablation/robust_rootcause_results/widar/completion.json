@@ -1,0 +1,13 @@
+{
+  "dataset": "widar",
+  "status": "ok",
+  "duration_sec": 123.37136697769165,
+  "samples": 180,
+  "diagnostic_samples": 64,
+  "probe_run": true,
+  "source_equivalence": {
+    "samples": 2,
+    "max_complex_absolute_error": 0.0,
+    "max_complex_relative_error": 0.0
+  }
+}

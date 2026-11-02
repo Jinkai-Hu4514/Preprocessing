@@ -1,0 +1,2 @@
+﻿condition,hampel_enabled,iqr_factor,normalization,interpolation,model,model_seed,split_seed,epochs,status,best_val_acc,test_acc,train_size,val_size,test_size,input_shape,checkpoint,output_dir,duration_sec,error
+no_hampel,False,1.5,train-split z-score,cubic15,resnet1d,42,42,50,ok,0.9075757575757575,0.8469696969696969,1980,660,660,"[1000, 15, 9]",/home/test/bupt_hjk/ablation/ablation_xrf55_no_hampel_result/runs/no_hampel/seed_42/best_checkpoint.pth,/home/test/bupt_hjk/ablation/ablation_xrf55_no_hampel_result/runs/no_hampel/seed_42,32.34,
