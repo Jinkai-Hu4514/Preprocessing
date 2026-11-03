@@ -1,0 +1,45 @@
+seed=42; preset=robust; model=ei
+具体算法: {"calibrate": {"method": "robust"}, "denoise": {"method": "wavelet"}, "normalize": {"method": "z-score"}}
+训练配置: {"batch": 32, "lr": 0.0003, "num_epochs": 20, "padding_length": 80, "wd": 0.001}
+样本/划分清单: /root/autodl-tmp/Preprocessing/test_elder/splits label_mapping= [0, 1, 2, 3, 5, 6]
+step 2: process_data {"calibrate": {"method": "robust"}, "denoise": {"method": "wavelet"}, "normalize": {"method": "z-score"}}
+待处理样本数: 2404; workers=8
+原始样本形状及数量 (T, F, A): {(21, 512, 3): 108, (50, 512, 3): 7, (53, 512, 3): 2, (27, 512, 3): 28, (18, 512, 3): 118, (24, 512, 3): 55, (14, 512, 3): 138, (11, 512, 3): 314, (42, 512, 3): 5, (17, 512, 3): 114, (15, 512, 3): 152, (35, 512, 3): 18, (12, 512, 3): 69, (31, 512, 3): 41, (13, 512, 3): 26, (7, 512, 3): 293, (25, 512, 3): 48, (32, 512, 3): 22, (34, 512, 3): 27, (44, 512, 3): 11, (56, 512, 3): 4, (30, 512, 3): 28, (8, 512, 3): 143, (16, 512, 3): 18, (22, 512, 3): 44, (38, 512, 3): 11, (36, 512, 3): 7, (54, 512, 3): 9, (20, 512, 3): 36, (23, 512, 3): 24, (47, 512, 3): 7, (4, 512, 3): 134, (28, 512, 3): 50, (19, 512, 3): 35, (49, 512, 3): 5, (26, 512, 3): 13, (61, 512, 3): 8, (37, 512, 3): 17, (63, 512, 3): 2, (51, 512, 3): 8, (46, 512, 3): 4, (33, 512, 3): 8, (73, 512, 3): 2, (29, 512, 3): 13, (43, 512, 3): 6, (85, 512, 3): 1, (57, 512, 3): 5, (104, 512, 3): 1, (81, 512, 3): 1, (72, 512, 3): 1, (52, 512, 3): 5, (77, 512, 3): 2, (62, 512, 3): 2, (10, 512, 3): 47, (58, 512, 3): 1, (110, 512, 3): 1, (6, 512, 3): 2, (3, 512, 3): 43, (41, 512, 3): 13, (40, 512, 3): 9, (5, 512, 3): 3, (9, 512, 3): 5, (121, 512, 3): 1, (39, 512, 3): 3, (67, 512, 3): 2, (45, 512, 3): 4, (55, 512, 3): 6, (78, 512, 3): 1, (64, 512, 3): 5, (48, 512, 3): 4, (74, 512, 3): 1, (60, 512, 3): 1, (80, 512, 3): 1, (116, 512, 3): 1}
+类别数: 6; 原始标签: [0, 1, 2, 3, 5, 6]
+标签映射 (原始标签 -> 训练标签): {0: 0, 1: 1, 2: 2, 3: 3, 5: 4, 6: 5}
+原始标签分布: {0: 404, 1: 398, 2: 387, 3: 405, 5: 405, 6: 405}
+分组数: 9; 原始分组分布: {1: 264, 2: 266, 3: 265, 4: 267, 5: 269, 6: 268, 7: 268, 8: 270, 9: 267}
+处理完成样本数: 2404
+处理后数据形状 (N, T, F, A): (2404, 80, 512, 3); dtype=complex128
+处理后单样本形状: (80, 512, 3); padding_length=80
+step 3: split_data; split_digest= 2476ad57847fe36b17eb3f4de20164383e40a6bce3ea1354f3ac7edcb1bc36f3
+train: n=1600, groups=[1, 3, 4, 5, 7, 9], labels={0: 270, 1: 264, 2: 256, 3: 270, 4: 270, 5: 270}
+validation: n=534, groups=[2, 6], labels={0: 89, 1: 89, 2: 86, 3: 90, 4: 90, 5: 90}
+test: n=270, groups=[8], labels={0: 45, 1: 45, 2: 45, 3: 45, 4: 45, 5: 45}
+step 4: build_loaders; batch= 32
+step 5: create_registered_model ei (80, 512, 3)
+device= cuda parameters= 780872
+step 6: train {"batch": 32, "lr": 0.0003, "num_epochs": 20, "padding_length": 80, "wd": 0.001}
+Epoch 1/20 train_loss=1.665234 train_acc=0.314375 val_loss=1.470491 val_acc=0.456929
+Epoch 2/20 train_loss=1.359855 train_acc=0.445000 val_loss=1.291958 val_acc=0.486891
+Epoch 3/20 train_loss=1.169771 train_acc=0.482500 val_loss=2.110274 val_acc=0.295880
+Epoch 4/20 train_loss=1.084688 train_acc=0.507500 val_loss=1.207655 val_acc=0.425094
+Epoch 5/20 train_loss=0.993195 train_acc=0.540000 val_loss=1.357034 val_acc=0.443820
+Epoch 6/20 train_loss=0.886888 train_acc=0.601875 val_loss=1.743343 val_acc=0.361423
+Epoch 7/20 train_loss=0.818994 train_acc=0.640000 val_loss=1.267971 val_acc=0.464419
+Epoch 8/20 train_loss=0.748216 train_acc=0.686250 val_loss=1.269879 val_acc=0.507491
+Epoch 9/20 train_loss=0.680567 train_acc=0.725000 val_loss=2.549835 val_acc=0.237828
+Epoch 10/20 train_loss=0.622522 train_acc=0.757500 val_loss=0.804681 val_acc=0.659176
+Epoch 11/20 train_loss=0.532163 train_acc=0.800625 val_loss=1.320393 val_acc=0.462547
+Epoch 12/20 train_loss=0.494870 train_acc=0.815625 val_loss=1.749238 val_acc=0.398876
+Epoch 13/20 train_loss=0.497709 train_acc=0.811875 val_loss=0.817302 val_acc=0.732210
+Epoch 14/20 train_loss=0.382146 train_acc=0.855625 val_loss=0.828132 val_acc=0.662921
+Epoch 15/20 train_loss=0.327573 train_acc=0.895000 val_loss=4.237159 val_acc=0.305243
+Epoch 16/20 train_loss=0.312038 train_acc=0.903125 val_loss=1.118202 val_acc=0.640449
+Epoch 17/20 train_loss=0.233017 train_acc=0.931250 val_loss=0.634252 val_acc=0.764045
+Epoch 18/20 train_loss=0.215658 train_acc=0.943750 val_loss=0.531433 val_acc=0.803371
+Epoch 19/20 train_loss=0.208421 train_acc=0.946250 val_loss=0.548165 val_acc=0.784644
+Epoch 20/20 train_loss=0.193077 train_acc=0.948750 val_loss=0.491885 val_acc=0.825843
+训练耗时（从开始训练到结束，含验证和 checkpoint 保存）: 4.483 秒
+step 7: evaluate_checkpoint
+best_val_acc, test_acc, macro_f1 = (0.8258426966292135, 0.7925925925925926, 0.7866138378916939)
