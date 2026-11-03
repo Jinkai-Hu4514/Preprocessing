@@ -132,17 +132,13 @@ def set_seed(seed):
 def build_experiments():
     if STAGE == "preset":
         return [(name, apply_preset(name)) for name in list_presets()]
-    categories = ["denoise", "outliers"]
-    options = [DENOISE_OPTIONS, OUTLIER_OPTIONS]
-    if PHASE_DATASET:
-        categories.append("calibrate")
-        options.append(CALIBRATE_OPTIONS)
-    categories += ["normalize", "interpolate"]
-    options += [NORMALIZE_OPTIONS, INTERPOLATE_OPTIONS]
+    # Elder 不使用相位校准，仅枚举这四类预处理的 80 种组合。
+    categories = ["denoise", "outliers", "normalize", "interpolate"]
+    options = [DENOISE_OPTIONS, OUTLIER_OPTIONS, NORMALIZE_OPTIONS, INTERPOLATE_OPTIONS]
     combinations = [("+".join(item[0] for item in choice),
                      {key: item[1].copy() for key, item in zip(categories, choice)})
                     for choice in product(*options)]
-    assert len(combinations) == (320 if PHASE_DATASET else 80)
+    assert len(combinations) == 80
     return combinations
 
 
