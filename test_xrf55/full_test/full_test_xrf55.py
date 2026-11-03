@@ -11,11 +11,15 @@ import gc
 import hashlib
 import io
 import json
+import multiprocessing as mp
 import random
 import sys
 import time
 import traceback
 from collections import Counter
+from concurrent.futures import ProcessPoolExecutor
+from functools import partial
+from itertools import islice
 from itertools import product
 from pathlib import Path
 
@@ -47,14 +51,15 @@ DATA_FOLDER = "xrf55"
 MODEL_NAME = "resnet1d"
 STAGE = "full"
 SEEDS = (42, 727, 914)
+PARALLEL_WORKERS = 8  # 22 vCPU / 110 GB 服务器的初始设置，可按实际吞吐调整。
 DATA_PATH = PROJECT_ROOT / "datasets" / DATA_FOLDER
 OUTPUT_ROOT = Path(__file__).resolve().parent
 SPLIT_ROOT = OUTPUT_ROOT.parent / "splits"
 TEST_SPLIT, VAL_SPLIT = 0.3, 0.5
 PHASE_DATASET = DATASET_NAME in {"widar", "gait"}
-SUMMARY_FIELDS = ["seed", "preset", "combo_name", "model", "best_val_acc",
-                  "test_acc", "macro_f1", "output_dir", "notes", "status",
-                  "training_seconds", "pipeline_steps", "split_digest", "run_digest"]
+SUMMARY_FIELDS = ["seed", "combo_name", "model", "best_val_acc",
+                  "test_acc", "macro_f1", "output_dir", "status",
+                  "training_seconds", "split_digest", "run_digest"]
 
 # 沿用对应旧脚本的算法参数及组合顺序。
 DENOISE_OPTIONS = [
@@ -157,37 +162,60 @@ def verify_or_save(path, value):
                 raise RuntimeError(f"共享清单不一致: {path}")
 
 
-def load_raw_data():
-    """step 1：全量读取一次，按相对路径及文件内样本编号固定顺序。"""
-    print("step 1: load_raw_data", DATA_PATH)
+def initialize_worker():
+    """每个 CPU 进程使用一个计算线程，避免多进程与 BLAS 线程叠加。"""
+    from threadpoolctl import threadpool_limits
+    threadpool_limits(limits=1)
+    torch.set_num_threads(1)
+
+
+def ordered_parallel_map(executor, function, items):
+    """每批最多提交 2 × 工作进程数个任务，按输入顺序返回。"""
+    iterator = iter(items)
+    while batch := list(islice(iterator, PARALLEL_WORKERS * 2)):
+        yield from executor.map(function, batch)
+
+
+def read_raw_file(path):
+    """工作进程只返回数组和元数据，不传回逐帧对象。"""
     reader = readers.get_reader_class(DATASET_NAME)()
     arrays, records, excluded = [], [], []
-    for path in sorted(DATA_PATH.rglob("*")):
-        if not path.is_file() or "truth" in path.name:
+    relative = path.relative_to(DATA_PATH).as_posix()
+    if not reader.sniff(str(path)):
+        excluded.append({"file": relative, "reason": "format_mismatch"})
+        return [], [], excluded
+    # 匹配格式却无法读取时停止，防止两个阶段接受不同的原始样本集合。
+    samples = reader.read_file(str(path))
+    samples = samples if isinstance(samples, list) else [samples]
+    if not samples:
+        raise RuntimeError(f"读取器未返回样本: {path}")
+    for index, sample in enumerate(samples):
+        label, group = _selector(_parse_file_info_from_filename(sample.file_name, DATASET_NAME), DATASET_NAME)
+        if len(sample.frames) < 2:
+            excluded.append({"file": relative, "sample": index, "reason": "fewer_than_2_frames"})
             continue
-        relative = path.relative_to(DATA_PATH).as_posix()
-        if not reader.sniff(str(path)):
-            excluded.append({"file": relative, "reason": "format_mismatch"})
-            continue
-        # 匹配格式却无法读取时停止，防止两个阶段接受不同的原始样本集合。
-        samples = reader.read_file(str(path))
-        samples = samples if isinstance(samples, list) else [samples]
-        if not samples:
-            raise RuntimeError(f"读取器未返回样本: {path}")
-        for index, sample in enumerate(samples):
-            label, group = _selector(_parse_file_info_from_filename(sample.file_name, DATASET_NAME), DATASET_NAME)
-            if len(sample.frames) < 2:
-                excluded.append({"file": relative, "sample": index, "reason": "fewer_than_2_frames"})
-                continue
-            data = np.stack([frame.csi_array for frame in sorted(sample.frames, key=lambda f: f.timestamp)])
-            if data.ndim == 2:
-                data = data[..., None]
-            if data.ndim != 3 or not np.isfinite(data).all():
-                raise ValueError(f"原始 CSI 形状或有限值检查失败: {relative} #{index}")
-            arrays.append(data)
-            stat = path.stat()
-            records.append({"id": f"{relative}#{index}", "label": int(label), "group": int(group),
-                            "size": stat.st_size, "mtime_ns": stat.st_mtime_ns})
+        data = np.stack([frame.csi_array for frame in sorted(sample.frames, key=lambda f: f.timestamp)])
+        if data.ndim == 2:
+            data = data[..., None]
+        if data.ndim != 3 or not np.isfinite(data).all():
+            raise ValueError(f"原始 CSI 形状或有限值检查失败: {relative} #{index}")
+        arrays.append(data)
+        stat = path.stat()
+        records.append({"id": f"{relative}#{index}", "label": int(label), "group": int(group),
+                        "size": stat.st_size, "mtime_ns": stat.st_mtime_ns})
+    return arrays, records, excluded
+
+
+def load_raw_data(executor):
+    """step 1：并行读取一次，按相对路径及文件内样本编号固定顺序。"""
+    print("step 1: load_raw_data", DATA_PATH, "workers=", PARALLEL_WORKERS)
+    files = [path for path in sorted(DATA_PATH.rglob("*"))
+             if path.is_file() and "truth" not in path.name]
+    arrays, records, excluded = [], [], []
+    for file_arrays, file_records, file_excluded in ordered_parallel_map(executor, read_raw_file, files):
+        arrays.extend(file_arrays)
+        records.extend(file_records)
+        excluded.extend(file_excluded)
     if not arrays:
         raise RuntimeError(f"无有效样本: {DATA_PATH}")
     manifest = {"dataset": DATASET_NAME, "samples": records, "excluded": excluded}
@@ -217,19 +245,41 @@ def prepare_split_indices(labels, groups, seed, sample_digest):
     return indices, digest(record)
 
 
-def process_data(raw, pipeline_steps, padding_length, prefix_cache, labels, groups, classes):
+def process_sample(item, steps, phase_zscore=False, padding_length=None):
+    """单样本算法工作函数；顺序及异常处理与串行版本一致。"""
+    index, data = item
+    try:
+        result = execute_pipeline(data, steps, dataset=DATASET_NAME)
+        if phase_zscore:
+            result = normalize_amplitude(result, method="z-score", return_phase_channels=True)
+        if result.ndim != 3 or not result.size or not np.isfinite(result).all():
+            raise ValueError("算法输出形状或有限值检查失败")
+        if padding_length is not None:
+            result = resize_csi_to_fixed_length([result], target_length=padding_length)[0]
+        return result
+    except Exception as exc:
+        raise RuntimeError(f"样本索引 {index} 预处理失败，整个组合失败，禁止丢弃样本") from exc
+
+
+def process_data(raw, pipeline_steps, padding_length, prefix_cache, labels, groups, classes, executor, summary_log=None):
     """step 2：每个预设/组合仅处理一次，三个种子复用；不允许丢样本。
 
     Widar/Gait 第二阶段复用 denoise/outliers/calibrate 公共前缀，
     z-score 在插值后形成有符号幅度+相位，顺序与源码处理器一致。
     """
-    print("step 2: process_data", json_text(pipeline_steps))
-    print(f"待处理样本数: {len(raw)}")
-    print("原始样本形状及数量 (T, F, A):", dict(Counter(tuple(item.shape) for item in raw)))
-    print(f"类别数: {len(classes)}; 原始标签: {classes}")
-    print("标签映射 (原始标签 -> 训练标签):", dict(zip(classes, range(len(classes)))))
-    print("原始标签分布:", {classes[label]: count for label, count in sorted(Counter(labels.tolist()).items())})
-    print(f"分组数: {len(set(groups.tolist()))}; 原始分组分布:", dict(sorted(Counter(groups.tolist()).items())))
+    def report(*args):
+        """只将本步骤的统计信息写入日志，不复制算法内部逐样本提示。"""
+        print(*args)
+        if summary_log is not None:
+            print(*args, file=summary_log)
+
+    report("step 2: process_data", json_text(pipeline_steps))
+    report(f"待处理样本数: {len(raw)}; workers={PARALLEL_WORKERS}")
+    report("原始样本形状及数量 (T, F, A):", dict(Counter(tuple(item.shape) for item in raw)))
+    report(f"类别数: {len(classes)}; 原始标签: {classes}")
+    report("标签映射 (原始标签 -> 训练标签):", dict(zip(classes, range(len(classes)))))
+    report("原始标签分布:", {classes[label]: count for label, count in sorted(Counter(labels.tolist()).items())})
+    report(f"分组数: {len(set(groups.tolist()))}; 原始分组分布:", dict(sorted(Counter(groups.tolist()).items())))
     steps = dict(pipeline_steps)
     source = raw
     if STAGE == "full" and PHASE_DATASET:
@@ -237,28 +287,21 @@ def process_data(raw, pipeline_steps, padding_length, prefix_cache, labels, grou
         key = json_text(prefix)
         if prefix_cache.get("key") != key:
             prefix_cache.clear()
-            prefix_cache["data"] = [execute_pipeline(data, prefix, dataset=DATASET_NAME) for data in raw]
+            prefix_cache["data"] = list(ordered_parallel_map(
+                executor, partial(process_sample, steps=prefix), enumerate(raw)))
             prefix_cache["key"] = key
         source = prefix_cache["data"]
     method = steps.get("normalize", {}).get("method")
     phase_zscore = PHASE_DATASET and method == "z-score"
     if phase_zscore or (DATASET_NAME == "xrf55" and method in {"z-score", "min-max"}):
         steps.pop("normalize")
-    processed = []
-    for index, data in enumerate(source):
-        try:
-            result = execute_pipeline(data, steps, dataset=DATASET_NAME)
-            if phase_zscore:
-                result = normalize_amplitude(result, method="z-score", return_phase_channels=True)
-            if result.ndim != 3 or not result.size or not np.isfinite(result).all():
-                raise ValueError("算法输出形状或有限值检查失败")
-            processed.append(resize_csi_to_fixed_length([result], target_length=padding_length)[0])
-        except Exception as exc:
-            raise RuntimeError(f"样本索引 {index} 预处理失败，整个组合失败，禁止丢弃样本") from exc
+    worker = partial(process_sample, steps=steps, phase_zscore=phase_zscore,
+                     padding_length=padding_length)
+    processed = list(ordered_parallel_map(executor, worker, enumerate(source)))
     processed_data = np.stack(processed)
-    print(f"处理完成样本数: {len(processed_data)}")
-    print(f"处理后数据形状 (N, T, F, A): {processed_data.shape}; dtype={processed_data.dtype}")
-    print(f"处理后单样本形状: {processed_data.shape[1:]}; padding_length={padding_length}")
+    report(f"处理完成样本数: {len(processed_data)}")
+    report(f"处理后数据形状 (N, T, F, A): {processed_data.shape}; dtype={processed_data.dtype}")
+    report(f"处理后单样本形状: {processed_data.shape[1:]}; padding_length={padding_length}")
     return processed_data
 
 
@@ -368,8 +411,8 @@ def run_model(seed, name, steps, model_name, split, pipeline_log, params, classe
     output = OUTPUT_ROOT / f"result{seed}" / f"{seed}+{name}+{model_name}"
     output.mkdir(parents=True, exist_ok=True)
     row = dict.fromkeys(SUMMARY_FIELDS, "")
-    row.update(seed=seed, preset=name if STAGE == "preset" else "", combo_name=name if STAGE == "full" else "",
-               model=model_name, output_dir=str(output), pipeline_steps=json_text(steps),
+    row.update(seed=seed, combo_name=name,
+               model=model_name, output_dir=str(output),
                split_digest=split_digest, run_digest=run_digest, status="failed")
     with (output / "train_process.txt").open("w", encoding="utf-8") as log:
         with contextlib.redirect_stdout(Tee(sys.stdout, log)), contextlib.redirect_stderr(Tee(sys.stderr, log)):
@@ -386,11 +429,9 @@ def run_model(seed, name, steps, model_name, split, pipeline_log, params, classe
                 model, device = create_registered_model(model_name, len(classes), tuple(loaders[0].dataset.data_list.shape[1:]))
                 checkpoint, elapsed = train_registered_model(model, device, loaders, params, output)
                 val, test, f1 = evaluate_checkpoint(model, device, loaders[2], checkpoint, len(classes))
-                row.update(best_val_acc=val, test_acc=test, macro_f1=f1, training_seconds=elapsed, status="ok",
-                           notes="测试指标来自最佳验证 checkpoint；acc/F1 范围 0–1")
+                row.update(best_val_acc=val, test_acc=test, macro_f1=f1, training_seconds=elapsed, status="ok")
             except Exception:
                 traceback.print_exc()
-                row["notes"] = traceback.format_exc().splitlines()[-1]
     return row
 
 
@@ -403,7 +444,13 @@ def save_summary(path, rows):
     temp.replace(path)
 
 
-def main():
+def read_summary(path):
+    """读取当前阶段的结果，用于断点续跑。"""
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def run_experiments(executor):
     params = load_params(DATASET_NAME)
     if DATASET_NAME == "xrf55":
         params["num_epochs"] = 50
@@ -413,7 +460,7 @@ def main():
     if "--check" in sys.argv:
         return
     # step 1：读取一次，并在任何算法执行前固定三份划分。
-    raw, labels, groups, classes, sample_digest = load_raw_data()
+    raw, labels, groups, classes, sample_digest = load_raw_data(executor)
     splits = {seed: prepare_split_indices(labels, groups, seed, sample_digest) for seed in SEEDS}
     summaries, paths = {}, {}
     for seed in SEEDS:
@@ -422,8 +469,8 @@ def main():
         paths[seed] = directory / f"{DATA_FOLDER}_{STAGE}_summary.csv"
         rows = {}
         if paths[seed].exists():
-            with paths[seed].open(encoding="utf-8-sig", newline="") as handle:
-                rows = {(row["preset"] or row["combo_name"], row["model"]): row for row in csv.DictReader(handle)}
+            rows = {(row["combo_name"], row["model"]): row
+                    for row in read_summary(paths[seed])}
         summaries[seed] = rows
     prefix_cache = {}
     for name, steps in experiments:
@@ -445,9 +492,9 @@ def main():
         process_capture = io.StringIO()
         try:
             set_seed(SEEDS[0])
-            # step 2：处理一次，捕获输出和警告，供所有种子/模型的日志复用。
-            with contextlib.redirect_stdout(Tee(sys.stdout, process_capture)), contextlib.redirect_stderr(Tee(sys.stderr, process_capture)):
-                data = process_data(raw, steps, params["padding_length"], prefix_cache, labels, groups, classes)
+            # step 2：处理一次，仅复制统计信息供所有种子/模型的日志复用。
+            data = process_data(raw, steps, params["padding_length"], prefix_cache,
+                                labels, groups, classes, executor, summary_log=process_capture)
         except Exception:
             error = traceback.format_exc()
         for seed in SEEDS:
@@ -474,6 +521,15 @@ def main():
             del split
         del data
     print("实验结束；失败项已记录，下次运行会重试。")
+
+
+def main():
+    # spawn 在 Windows/Linux 上使用相同的启动方式，工作进程不继承主进程 CUDA 状态。
+    # 读取和全部预处理共用此池；退出脚本时统一关闭。
+    with ProcessPoolExecutor(max_workers=PARALLEL_WORKERS,
+                             mp_context=mp.get_context("spawn"),
+                             initializer=initialize_worker) as executor:
+        run_experiments(executor)
 
 
 if __name__ == "__main__":
