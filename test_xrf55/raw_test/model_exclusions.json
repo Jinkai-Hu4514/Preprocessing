@@ -1,0 +1,6 @@
+{
+  "mambacsi": {
+    "skip": true,
+    "reason": "在测试过程中我们发现训练mambacsi模型所需耗时太长，受限于算力约束，我们在训练过程中将mambacsi模型跳过。"
+  }
+}

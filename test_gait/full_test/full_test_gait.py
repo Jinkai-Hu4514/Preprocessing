@@ -1,5 +1,7 @@
 """独立的两阶段实验步骤；直接运行本文件即可，--check 只检查配置。
 
+本文件运行第 1–160 种组合；full_test_gait_part2.py 运行第 161–320 种。
+
 所有 acc/F1 均为 0–1。测试只使用最佳验证 checkpoint。
 splits/ 保存两个阶段共享的原始样本清单和划分，数据变化时拒绝混用旧结果。
 """
@@ -283,10 +285,10 @@ def process_sample(item, steps, phase_zscore=False, padding_length=None):
         raise RuntimeError(f"样本索引 {index} 预处理失败，整个组合失败，禁止丢弃样本") from exc
 
 
-def process_data(raw, pipeline_steps, padding_length, prefix_cache, labels, groups, classes, executor, summary_log=None):
+def process_data(raw, pipeline_steps, padding_length, labels, groups, classes, executor, summary_log=None):
     """step 2：每个预设/组合仅处理一次，三个种子复用；不允许丢样本。
 
-    Widar/Gait 第二阶段复用 denoise/outliers/calibrate 公共前缀，
+    每个组合独立执行完整预处理，不保留公共前缀缓存以降低内存占用。
     z-score 在插值后形成有符号幅度+相位，顺序与源码处理器一致。
     """
     def report(*args):
@@ -303,23 +305,13 @@ def process_data(raw, pipeline_steps, padding_length, prefix_cache, labels, grou
     report("原始标签分布:", {classes[label]: count for label, count in sorted(Counter(labels.tolist()).items())})
     report(f"分组数: {len(set(groups.tolist()))}; 原始分组分布:", dict(sorted(Counter(groups.tolist()).items())))
     steps = dict(pipeline_steps)
-    source = raw
-    if STAGE == "full" and PHASE_DATASET:
-        prefix = {key: steps.pop(key) for key in ("denoise", "outliers", "calibrate")}
-        key = json_text(prefix)
-        if prefix_cache.get("key") != key:
-            prefix_cache.clear()
-            prefix_cache["data"] = list(ordered_parallel_map(
-                executor, partial(process_sample, steps=prefix), enumerate(raw)))
-            prefix_cache["key"] = key
-        source = prefix_cache["data"]
     method = steps.get("normalize", {}).get("method")
     phase_zscore = PHASE_DATASET and method == "z-score"
     if phase_zscore or (DATASET_NAME == "xrf55" and method in {"z-score", "min-max"}):
         steps.pop("normalize")
     worker = partial(process_sample, steps=steps, phase_zscore=phase_zscore,
                      padding_length=padding_length)
-    processed = list(ordered_parallel_map(executor, worker, enumerate(source)))
+    processed = list(ordered_parallel_map(executor, worker, enumerate(raw)))
     processed_data = np.stack(processed)
     report(f"处理完成样本数: {len(processed_data)}")
     report(f"处理后数据形状 (N, T, F, A): {processed_data.shape}; dtype={processed_data.dtype}")
@@ -472,11 +464,12 @@ def read_summary(path):
         return list(csv.DictReader(handle))
 
 
-def run_experiments(executor):
+def run_experiments(executor, start=0, stop=160):
     params = load_params(DATASET_NAME)
     if DATASET_NAME == "xrf55":
         params["num_epochs"] = 50
-    experiments = build_experiments()
+    experiments = build_experiments()[start:stop]
+    print(f"组合范围: 第 {start + 1}–{stop} 种（沿用完整列表顺序）", flush=True)
     models = list(list_models()) if STAGE == "preset" else [MODEL_NAME]
     print(DATASET_NAME, STAGE, "seeds=", SEEDS, "pipelines=", len(experiments), "models=", models, "params=", params)
     if "--check" in sys.argv:
@@ -488,13 +481,12 @@ def run_experiments(executor):
     for seed in SEEDS:
         directory = OUTPUT_ROOT / f"result{seed}"
         directory.mkdir(parents=True, exist_ok=True)
-        paths[seed] = directory / f"{DATA_FOLDER}_{STAGE}_summary.csv"
+        paths[seed] = directory / f"{DATA_FOLDER}_{STAGE}_{start + 1}_{stop}_summary.csv"
         rows = {}
         if paths[seed].exists():
             rows = {(row["combo_name"], row["model"]): row
                     for row in read_summary(paths[seed])}
         summaries[seed] = rows
-    prefix_cache = {}
     for name, steps in experiments:
         run_digest = digest({"params": params, "steps": steps, "sample_digest": sample_digest})
         pending = {}
@@ -515,7 +507,7 @@ def run_experiments(executor):
         try:
             set_seed(SEEDS[0])
             # step 2：处理一次，仅复制统计信息供所有种子/模型的日志复用。
-            data = process_data(raw, steps, params["padding_length"], prefix_cache,
+            data = process_data(raw, steps, params["padding_length"],
                                 labels, groups, classes, executor, summary_log=process_capture)
         except Exception:
             error = traceback.format_exc()
@@ -545,13 +537,13 @@ def run_experiments(executor):
     print("实验结束；失败项已记录，下次运行会重试。")
 
 
-def main():
+def main(start=0, stop=160):
     # spawn 在 Windows/Linux 上使用相同的启动方式，工作进程不继承主进程 CUDA 状态。
     # 读取和全部预处理共用此池；退出脚本时统一关闭。
     with ProcessPoolExecutor(max_workers=PARALLEL_WORKERS,
                              mp_context=mp.get_context("spawn"),
                              initializer=initialize_worker) as executor:
-        run_experiments(executor)
+        run_experiments(executor, start, stop)
 
 
 if __name__ == "__main__":

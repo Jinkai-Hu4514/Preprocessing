@@ -457,12 +457,25 @@ def read_summary(path):
         return list(csv.DictReader(handle))
 
 
+def enabled_models():
+    """读取本目录的跳过说明；只过滤待运行模型，不删除历史结果。"""
+    policy = json.loads((OUTPUT_ROOT / "model_exclusions.json").read_text(encoding="utf-8"))
+    models = []
+    for name in list_models():
+        rule = policy.get(name.lower(), {})
+        if rule.get("skip", False):
+            print(f"跳过模型 {name}: {rule['reason']}", flush=True)
+        else:
+            models.append(name)
+    return models
+
+
 def run_experiments(executor):
     params = load_params(DATASET_NAME)
     if DATASET_NAME == "xrf55":
         params["num_epochs"] = 50
     experiments = build_experiments()
-    models = list(list_models()) if STAGE == "preset" else [MODEL_NAME]
+    models = enabled_models() if STAGE == "preset" else [MODEL_NAME]
     print(DATASET_NAME, STAGE, "seeds=", SEEDS, "pipelines=", len(experiments), "models=", models, "params=", params)
     if "--check" in sys.argv:
         return
