@@ -449,7 +449,7 @@ def read_summary(path):
 def run_experiments(executor):
     params = load_params(DATASET_NAME)
     if DATASET_NAME == "xrf55":
-        params["num_epochs"] = 50
+        params["num_epochs"] = 25
     experiments = build_experiments()
     models = list(list_models()) if STAGE == "preset" else [MODEL_NAME]
     print(DATASET_NAME, STAGE, "seeds=", SEEDS, "pipelines=", len(experiments), "models=", models, "params=", params)
