@@ -97,20 +97,34 @@ def set_seed(seed):
     torch.backends.cudnn.deterministic = True
 
 
-def verify_or_save(path, value):
+def verify_or_save(path, value, *, ignore_sample_mtime=False):
     """raw 与前两个阶段共享同一份清单；不悄悄覆盖旧实验的划分。"""
+    def comparable(record):
+        if not ignore_sample_mtime:
+            return record
+        # 仅忽略样本修改时间，仍严格比较顺序、路径、大小、标签、分组及排除项。
+        return {**record, "samples": [
+            {key: item for key, item in sample.items() if key != "mtime_ns"}
+            for sample in record["samples"]
+        ]}
+
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists():
-        if json.loads(path.read_text(encoding="utf-8")) != value:
+        saved = json.loads(path.read_text(encoding="utf-8"))
+        if comparable(saved) != comparable(value):
             raise RuntimeError(f"样本/划分已变化，请先归档旧结果和 splits 后重新运行: {path}")
+        return saved
     else:
         # 独占创建，避免同时启动两个阶段时覆盖另一个阶段的清单。
         try:
             with path.open("x", encoding="utf-8") as handle:
                 json.dump(value, handle, ensure_ascii=False, indent=2)
         except FileExistsError:
-            if json.loads(path.read_text(encoding="utf-8")) != value:
+            saved = json.loads(path.read_text(encoding="utf-8"))
+            if comparable(saved) != comparable(value):
                 raise RuntimeError(f"共享清单不一致: {path}")
+            return saved
+    return value
 
 
 def initialize_worker():
@@ -170,7 +184,8 @@ def load_raw_data(executor):
     if not arrays:
         raise RuntimeError(f"无有效样本: {DATA_PATH}")
     manifest = {"dataset": DATASET_NAME, "samples": records, "excluded": excluded}
-    verify_or_save(SPLIT_ROOT / "samples.json", manifest)
+    # 时间变化只放宽比较；摘要继续使用磁盘中的原清单，避免旧 split/结果失效。
+    manifest = verify_or_save(SPLIT_ROOT / "samples.json", manifest, ignore_sample_mtime=True)
     classes = sorted({row["label"] for row in records})
     labels = np.asarray([classes.index(row["label"]) for row in records])
     # group 保留源码含义和原始值，尤其不能把 XRF55 repetition 随意重新编号。
