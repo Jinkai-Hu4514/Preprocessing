@@ -488,6 +488,17 @@ def run_experiments(executor):
         if paths[seed].exists():
             rows = {(row["combo_name"], row["model"]): row
                     for row in read_summary(paths[seed])}
+        # 旧服务器保存的是绝对路径；确认当前目录的文件齐全后更新汇总表。
+        relocated = False
+        for row in rows.values():
+            current_output = directory / f"{seed}+{row['combo_name']}+{row['model']}"
+            if (row.get("status") == "ok" and row.get("output_dir") != str(current_output)
+                    and all((current_output / filename).is_file()
+                            for filename in ("best_checkpoint.pth", "loss_curve.png", "train_process.txt"))):
+                row["output_dir"] = str(current_output)
+                relocated = True
+        if relocated:
+            save_summary(paths[seed], rows)
         summaries[seed] = rows
     prefix_cache = {}
     for name, steps in experiments:
