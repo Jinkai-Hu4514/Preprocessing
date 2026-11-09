@@ -51,6 +51,7 @@ DATA_FOLDER = "elder"
 MODEL_NAME = "csitime"
 STAGE = "full"
 SEEDS = (42, 727, 914)
+CUDA_DEVICE_INDEX = 2  # 对应 nvidia-smi 中的 GPU 编号。
 PARALLEL_WORKERS = 8  # 22 vCPU / 110 GB 服务器的初始设置，可按实际吞吐调整。
 DATA_PATH = PROJECT_ROOT / "datasets" / DATA_FOLDER
 OUTPUT_ROOT = Path(__file__).resolve().parent
@@ -321,7 +322,7 @@ def build_loaders(split, steps, batch_size, seed):
 
 def create_registered_model(name, classes, input_shape):
     print("step 5: create_registered_model", name, input_shape)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device(f"cuda:{CUDA_DEVICE_INDEX}")
     model = create_model(name, num_classes=classes, input_shape=input_shape).to(device)
     print("device=", device, "parameters=", sum(p.numel() for p in model.parameters()))
     return model, device
@@ -370,7 +371,7 @@ def train_registered_model(model, device, loaders, params, output):
                             "epoch": epoch + 1, "padding_length": params["padding_length"]}, checkpoint)
     finally:
         if device.type == "cuda":
-            torch.cuda.synchronize()
+            torch.cuda.synchronize(device)
         elapsed = time.perf_counter() - start
         print(f"训练耗时（从开始训练到结束，含验证和 checkpoint 保存）: {elapsed:.3f} 秒")
         if history["train_loss"]:
