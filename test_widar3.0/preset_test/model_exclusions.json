@@ -1,6 +1,10 @@
 {
   "mambacsi": {
     "skip": true,
-    "reason": "在测试过程中我们发现训练mambacsi模型所需耗时太长，受限于算力约束，我们在训练过程中将mambacsi模型跳过。"
-  }
+    "reason": "在测试过程中我们发现训练mambacsi模型所需耗时太长，受限于算力约束，我们在训练过程中将mambacsi模型跳过，在gait数据集中，记录约三小时未能完成一个epoch。"
+  },
+  "graphneuralcsi": {
+  "skip": true,
+  "reason": "在测试过程中我们发现训练graphneuralcsi模型所需耗时太长，受限于算力约束，我们在训练过程中将graphneuralcsi模型跳过，记录约896.073秒未能完成一个epoch，不宜继续等待。"
+}
 }
