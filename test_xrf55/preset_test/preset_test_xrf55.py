@@ -5,6 +5,11 @@ splits/ 保存两个阶段共享的原始样本清单和划分，数据变化时
 """
 from __future__ import annotations
 
+import os
+
+for name in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
+    os.environ[name] = "2"
+
 import contextlib
 import csv
 import gc
@@ -52,7 +57,7 @@ MODEL_NAME = "resnet1d"
 STAGE = "preset"
 SEEDS = (42, 727, 914)
 CUDA_DEVICE_INDEX = 2  # 对应 nvidia-smi 中的 GPU 编号。
-PARALLEL_WORKERS = 8  # 22 vCPU / 110 GB 服务器的初始设置，可按实际吞吐调整。
+PARALLEL_WORKERS = 4  # 22 vCPU / 110 GB 服务器的初始设置，可按实际吞吐调整。
 DATA_PATH = PROJECT_ROOT / "datasets" / DATA_FOLDER
 OUTPUT_ROOT = Path(__file__).resolve().parent
 SPLIT_ROOT = OUTPUT_ROOT.parent / "splits"
@@ -160,10 +165,10 @@ def verify_or_save(path, value):
 
 
 def initialize_worker():
-    """每个 CPU 进程使用一个计算线程，避免多进程与 BLAS 线程叠加。"""
+    """每个 CPU 进程使用两个计算线程，避免多进程与 BLAS 线程叠加。"""
     from threadpoolctl import threadpool_limits
-    threadpool_limits(limits=1)
-    torch.set_num_threads(1)
+    threadpool_limits(limits=2)
+    torch.set_num_threads(2)
 
 
 def ordered_parallel_map(executor, function, items):
