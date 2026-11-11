@@ -291,10 +291,10 @@ def process_sample(item, steps, phase_zscore=False, padding_length=None):
         raise RuntimeError(f"样本索引 {index} 预处理失败，整个组合失败，禁止丢弃样本") from exc
 
 
-def process_data(raw, pipeline_steps, padding_length, labels, groups, classes, executor, summary_log=None):
+def process_data(raw, pipeline_steps, padding_length, prefix_cache, labels, groups, classes, executor, summary_log=None):
     """step 2：每个预设/组合仅处理一次，三个种子复用；不允许丢样本。
 
-    每个组合独立执行完整预处理，不保留公共前缀缓存以降低内存占用。
+    相邻组合复用 denoise/outliers/calibrate 公共前缀及 min-max 结果。
     z-score 在插值后形成有符号幅度+相位，顺序与源码处理器一致。
     """
     def report(*args):
@@ -311,13 +311,31 @@ def process_data(raw, pipeline_steps, padding_length, labels, groups, classes, e
     report("原始标签分布:", {classes[label]: count for label, count in sorted(Counter(labels.tolist()).items())})
     report(f"分组数: {len(set(groups.tolist()))}; 原始分组分布:", dict(sorted(Counter(groups.tolist()).items())))
     steps = dict(pipeline_steps)
+    prefix = {key: steps.pop(key) for key in ("denoise", "outliers", "calibrate")}
+    key = json_text(prefix)
+    if prefix_cache.get("key") != key:
+        prefix_cache.clear()
+        prefix_cache["data"] = list(ordered_parallel_map(
+            executor, partial(process_sample, steps=prefix), enumerate(raw)))
+        prefix_cache["key"] = key
     method = steps.get("normalize", {}).get("method")
+    if method == "min-max":
+        if "minmax_data" not in prefix_cache:
+            prefix_cache["minmax_data"] = list(ordered_parallel_map(
+                executor, partial(process_sample, steps={"normalize": steps["normalize"]}),
+                enumerate(prefix_cache["data"])))
+            # min-max 分支排在 z-score 之后，后续不再需要复数前缀数组。
+            del prefix_cache["data"]
+        source = prefix_cache["minmax_data"]
+        steps.pop("normalize")
+    else:
+        source = prefix_cache["data"]
     phase_zscore = PHASE_DATASET and method == "z-score"
     if phase_zscore or (DATASET_NAME == "xrf55" and method in {"z-score", "min-max"}):
         steps.pop("normalize")
     worker = partial(process_sample, steps=steps, phase_zscore=phase_zscore,
                      padding_length=padding_length)
-    processed = list(ordered_parallel_map(executor, worker, enumerate(raw)))
+    processed = list(ordered_parallel_map(executor, worker, enumerate(source)))
     processed_data = np.stack(processed)
     report(f"处理完成样本数: {len(processed_data)}")
     report(f"处理后数据形状 (N, T, F, A): {processed_data.shape}; dtype={processed_data.dtype}")
@@ -504,6 +522,7 @@ def run_experiments(executor, start=0, stop=160):
         if relocated:
             save_summary(paths[seed], rows)
         summaries[seed] = rows
+    prefix_cache = {}
     for name, steps in experiments:
         run_digest = digest({"params": params, "steps": steps, "sample_digest": sample_digest})
         pending = {}
@@ -526,7 +545,7 @@ def run_experiments(executor, start=0, stop=160):
         try:
             set_seed(SEEDS[0])
             # step 2：处理一次，仅复制统计信息供所有种子/模型的日志复用。
-            data = process_data(raw, steps, params["padding_length"],
+            data = process_data(raw, steps, params["padding_length"], prefix_cache,
                                 labels, groups, classes, executor, summary_log=process_capture)
         except Exception:
             error = traceback.format_exc()
