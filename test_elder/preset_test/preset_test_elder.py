@@ -508,6 +508,8 @@ def run_experiments(executor):
             pending[seed] = []
             for model in models:
                 old = summaries[seed].get((name, model), {})
+                if old.get("status") == "failed":
+                    continue
                 complete = (old.get("status") == "ok" and old.get("run_digest") == run_digest
                             and old.get("split_digest") == splits[seed][1]
                             and all((Path(old.get("output_dir", "")) / filename).is_file()
@@ -548,7 +550,7 @@ def run_experiments(executor):
                     torch.cuda.empty_cache()
             del split
         del data
-    print("实验结束；失败项已记录，下次运行会重试。")
+    print("实验结束；失败项已记录，正常续跑会跳过。")
 
 
 def main():
