@@ -63,4 +63,23 @@ Epoch 40/60 train_loss=0.078738 train_acc=0.967916 val_loss=0.341169 val_acc=0.8
 Epoch 41/60 train_loss=0.076345 train_acc=0.972821 val_loss=0.298478 val_acc=0.889781
 Epoch 42/60 train_loss=0.071527 train_acc=0.974751 val_loss=0.316777 val_acc=0.888817
 Epoch 43/60 train_loss=0.072786 train_acc=0.973705 val_loss=0.313892 val_acc=0.887532
-训练耗时（从开始训练到结束，含验证和 checkpoint 保存）: 2113.263 秒
+Epoch 44/60 train_loss=0.072288 train_acc=0.972821 val_loss=0.329916 val_acc=0.887853
+Epoch 45/60 train_loss=0.070967 train_acc=0.975555 val_loss=0.309316 val_acc=0.890746
+Epoch 46/60 train_loss=0.073021 train_acc=0.973142 val_loss=0.311836 val_acc=0.892031
+Epoch 47/60 train_loss=0.071274 train_acc=0.973866 val_loss=0.295788 val_acc=0.893959
+Epoch 48/60 train_loss=0.072286 train_acc=0.973384 val_loss=0.304417 val_acc=0.892352
+Epoch 49/60 train_loss=0.070606 train_acc=0.975555 val_loss=0.319820 val_acc=0.889139
+Epoch 50/60 train_loss=0.072975 train_acc=0.972821 val_loss=0.320948 val_acc=0.888817
+Epoch 51/60 train_loss=0.071076 train_acc=0.976037 val_loss=0.292417 val_acc=0.895887
+Epoch 52/60 train_loss=0.071278 train_acc=0.974268 val_loss=0.296961 val_acc=0.894923
+Epoch 53/60 train_loss=0.071886 train_acc=0.974188 val_loss=0.310947 val_acc=0.891388
+Epoch 54/60 train_loss=0.072701 train_acc=0.972419 val_loss=0.302255 val_acc=0.890103
+Epoch 55/60 train_loss=0.071852 train_acc=0.974268 val_loss=0.296142 val_acc=0.892995
+Epoch 56/60 train_loss=0.073306 train_acc=0.973947 val_loss=0.312610 val_acc=0.892352
+Epoch 57/60 train_loss=0.073256 train_acc=0.972580 val_loss=0.329130 val_acc=0.891067
+Epoch 58/60 train_loss=0.071559 train_acc=0.974107 val_loss=0.321618 val_acc=0.890746
+Epoch 59/60 train_loss=0.070782 train_acc=0.975314 val_loss=0.289465 val_acc=0.897494
+Epoch 60/60 train_loss=0.072671 train_acc=0.972178 val_loss=0.319357 val_acc=0.889781
+训练耗时（从开始训练到结束，含验证和 checkpoint 保存）: 2668.092 秒
+step 7: evaluate_checkpoint
+best_val_acc, test_acc, macro_f1 = (0.8974935732647815, 0.9404953361209392, 0.9228715912421168)
