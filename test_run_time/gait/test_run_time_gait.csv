@@ -1,1 +1,15 @@
-algorithm_name,algorithm_category,time_seed_42_seconds,time_seed_727_seconds,time_seed_914_seconds,average_seconds,dataset,status,error
+﻿algorithm_name,algorithm_category,time_seed_42_seconds,time_seed_727_seconds,time_seed_914_seconds,average_seconds,dataset,status,error
+wavelet,denoise,104.139249,103.939969,94.084801,100.721340,gait,ok,
+butterworth,denoise,99.866591,99.318783,96.737989,98.641121,gait,ok,
+savgol,denoise,100.358888,99.722679,102.018765,100.700111,gait,ok,
+bandpass,denoise,97.486300,97.062484,100.673907,98.407564,gait,ok,
+hampel,denoise,12577.910857,12105.712633,12063.008085,12248.877192,gait,ok,
+iqr,outliers,88.808973,90.119225,89.611045,89.513081,gait,ok,
+z-score,outliers,101.166678,101.361598,100.484937,101.004404,gait,ok,
+z-score,normalize,106.678912,107.751926,106.606802,107.012547,gait,ok,
+min-max,normalize,103.253074,102.208713,102.264121,102.575303,gait,ok,
+linear,interpolate,512.522239,513.675288,512.951274,513.049600,gait,ok,
+cubic,interpolate,1408.866830,1413.470580,1409.902741,1410.746717,gait,ok,
+nearest,interpolate,391.398222,388.443162,388.900933,389.580772,gait,ok,
+decimate,interpolate,96.177433,93.846929,93.867903,94.630755,gait,ok,
+linear,calibrate,439.698978,437.447613,,,gait,partial,

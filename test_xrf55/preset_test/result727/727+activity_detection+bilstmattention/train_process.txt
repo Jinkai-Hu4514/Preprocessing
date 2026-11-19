@@ -21,4 +21,30 @@ step 5: create_registered_model bilstmattention (1000, 30, 9)
 device= cuda:1 parameters= 1032375
 step 6: train {"batch": 32, "lr": 0.0003, "num_epochs": 25, "padding_length": 1000, "wd": 0.001}
 Epoch 1/25 train_loss=3.702819 train_acc=0.096465 val_loss=3.197434 val_acc=0.216667
-训练耗时（从开始训练到结束，含验证和 checkpoint 保存）: 4.820 秒
+Epoch 2/25 train_loss=2.723627 train_acc=0.334343 val_loss=2.311334 val_acc=0.486364
+Epoch 3/25 train_loss=1.844480 train_acc=0.555556 val_loss=1.589154 val_acc=0.595455
+Epoch 4/25 train_loss=1.222184 train_acc=0.703030 val_loss=1.150969 val_acc=0.704545
+Epoch 5/25 train_loss=0.819535 train_acc=0.802020 val_loss=0.829800 val_acc=0.786364
+Epoch 6/25 train_loss=0.555367 train_acc=0.861111 val_loss=0.649015 val_acc=0.815152
+Epoch 7/25 train_loss=0.395307 train_acc=0.899495 val_loss=0.608508 val_acc=0.810606
+Epoch 8/25 train_loss=0.308300 train_acc=0.917677 val_loss=0.533943 val_acc=0.831818
+Epoch 9/25 train_loss=0.245085 train_acc=0.934848 val_loss=0.454345 val_acc=0.845455
+Epoch 10/25 train_loss=0.230832 train_acc=0.937374 val_loss=0.482409 val_acc=0.842424
+Epoch 11/25 train_loss=0.178522 train_acc=0.953030 val_loss=0.391427 val_acc=0.868182
+Epoch 12/25 train_loss=0.131377 train_acc=0.961111 val_loss=0.446662 val_acc=0.859091
+Epoch 13/25 train_loss=0.106210 train_acc=0.968687 val_loss=0.383510 val_acc=0.886364
+Epoch 14/25 train_loss=0.080530 train_acc=0.982323 val_loss=0.356427 val_acc=0.880303
+Epoch 15/25 train_loss=0.082469 train_acc=0.975253 val_loss=0.347001 val_acc=0.887879
+Epoch 16/25 train_loss=0.063862 train_acc=0.985354 val_loss=0.309861 val_acc=0.903030
+Epoch 17/25 train_loss=0.054093 train_acc=0.985354 val_loss=0.318785 val_acc=0.898485
+Epoch 18/25 train_loss=0.064083 train_acc=0.980808 val_loss=0.367516 val_acc=0.887879
+Epoch 19/25 train_loss=0.072257 train_acc=0.979798 val_loss=0.444141 val_acc=0.856061
+Epoch 20/25 train_loss=0.083426 train_acc=0.978283 val_loss=0.379894 val_acc=0.878788
+Epoch 21/25 train_loss=0.053065 train_acc=0.986869 val_loss=0.333653 val_acc=0.893939
+Epoch 22/25 train_loss=0.069100 train_acc=0.984848 val_loss=0.415673 val_acc=0.881818
+Epoch 23/25 train_loss=0.049650 train_acc=0.989394 val_loss=0.324619 val_acc=0.903030
+Epoch 24/25 train_loss=0.028658 train_acc=0.994949 val_loss=0.311631 val_acc=0.904545
+Epoch 25/25 train_loss=0.023306 train_acc=0.996970 val_loss=0.301593 val_acc=0.912121
+训练耗时（从开始训练到结束，含验证和 checkpoint 保存）: 89.272 秒
+step 7: evaluate_checkpoint
+best_val_acc, test_acc, macro_f1 = (0.9121212121212121, 0.8742424242424243, 0.8719290286793353)

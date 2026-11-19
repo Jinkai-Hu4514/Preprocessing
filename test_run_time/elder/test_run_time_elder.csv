@@ -1,1 +1,14 @@
-algorithm_name,algorithm_category,time_seed_42_seconds,time_seed_727_seconds,time_seed_914_seconds,average_seconds,dataset,status,error
+﻿algorithm_name,algorithm_category,time_seed_42_seconds,time_seed_727_seconds,time_seed_914_seconds,average_seconds,dataset,status,error
+wavelet,denoise,55.826406,55.287021,55.223592,55.445673,elder,ok,
+butterworth,denoise,51.160126,51.128630,49.037939,50.442232,elder,ok,
+savgol,denoise,263.653324,265.427374,261.761097,263.613932,elder,ok,
+bandpass,denoise,39.023429,39.895967,38.812458,39.243951,elder,ok,
+hampel,denoise,457.040707,454.503775,458.442143,456.662208,elder,ok,
+iqr,outliers,3.980344,3.784824,3.862104,3.875757,elder,ok,
+z-score,outliers,1.597635,1.579818,1.558303,1.578585,elder,ok,
+z-score,normalize,1.581868,1.526178,1.707965,1.605337,elder,ok,
+min-max,normalize,1.599721,1.481966,1.576489,1.552725,elder,ok,
+linear,interpolate,5.247592,4.925219,5.017010,5.063274,elder,ok,
+cubic,interpolate,10.824060,10.953359,10.751332,10.842917,elder,ok,
+nearest,interpolate,4.450105,4.563824,4.458649,4.490859,elder,ok,
+decimate,interpolate,2.913474,2.925808,3.229673,3.022985,elder,ok,

@@ -1,1 +1,14 @@
-algorithm_name,algorithm_category,time_seed_42_seconds,time_seed_727_seconds,time_seed_914_seconds,average_seconds,dataset,status,error
+﻿algorithm_name,algorithm_category,time_seed_42_seconds,time_seed_727_seconds,time_seed_914_seconds,average_seconds,dataset,status,error
+wavelet,denoise,60.649619,62.754670,61.841889,61.748726,xrf55,ok,
+butterworth,denoise,55.731995,56.657656,60.579446,57.656366,xrf55,ok,
+savgol,denoise,99.215193,99.562110,100.613199,99.796834,xrf55,ok,
+bandpass,denoise,62.843748,63.742418,62.881471,63.155879,xrf55,ok,
+hampel,denoise,5055.811061,5035.499043,5035.234809,5042.181638,xrf55,ok,
+iqr,outliers,44.148084,42.735152,40.330176,42.404471,xrf55,ok,
+z-score,outliers,38.575479,38.489290,40.353542,39.139437,xrf55,ok,
+z-score,normalize,41.121482,41.088262,42.724504,41.644749,xrf55,ok,
+min-max,normalize,41.035845,39.887131,40.649344,40.524107,xrf55,ok,
+linear,interpolate,217.508959,214.373564,215.523124,215.801882,xrf55,ok,
+cubic,interpolate,676.108094,679.057158,676.120528,677.095260,xrf55,ok,
+nearest,interpolate,178.175768,183.309249,183.961999,181.815672,xrf55,ok,
+decimate,interpolate,52.581636,55.048083,54.369150,53.999623,xrf55,ok,

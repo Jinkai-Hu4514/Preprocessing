@@ -28,7 +28,7 @@ from wsdp.algorithms import execute_pipeline
 
 
 SEEDS = (42, 727, 914)
-WORKERS = 4
+WORKERS = 16
 TIME_FIELDS = {seed: f"time_seed_{seed}_seconds" for seed in SEEDS}
 FIELDS = ("algorithm_name", "algorithm_category", *TIME_FIELDS.values(),
           "average_seconds", "dataset", "status", "error")
@@ -108,7 +108,7 @@ def measure(executor, samples, *, dataset, category, method, target_k, seed):
     worker = partial(process_one, dataset=dataset, category=category,
                      method=method, target_k=target_k, seed=seed)
     start = time.perf_counter()
-    for batch in batched(enumerate(samples), WORKERS * 2):
+    for batch in batched(enumerate(samples), WORKERS * 4):
         errors = list(executor.map(worker, batch))
         if error := next((error for error in errors if error is not None), None):
             return "", error

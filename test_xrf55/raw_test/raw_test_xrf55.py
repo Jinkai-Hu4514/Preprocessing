@@ -54,8 +54,8 @@ from wsdp.utils import load_params, resize_csi_to_fixed_length
 DATASET_NAME = "xrf55"
 DATA_FOLDER = "xrf55"
 SEEDS = (42, 727, 914)
-CUDA_DEVICE_INDEX = 2  # 对应 nvidia-smi 中的 GPU 编号。
-PARALLEL_WORKERS = 4  # 22 vCPU / 110 GB 服务器的初始设置，可按实际吞吐调整。
+CUDA_DEVICE_INDEX = 1  # 对应 nvidia-smi 中的 GPU 编号。
+PARALLEL_WORKERS = 16  # 22 vCPU / 110 GB 服务器的初始设置，可按实际吞吐调整。
 DATA_PATH = PROJECT_ROOT / "datasets" / DATA_FOLDER
 OUTPUT_ROOT = Path(__file__).resolve().parent
 SPLIT_ROOT = OUTPUT_ROOT.parent / "splits"
@@ -137,7 +137,7 @@ def initialize_worker():
 def ordered_parallel_map(executor, function, items):
     """每批最多提交 2 × 工作进程数个任务，按输入顺序返回。"""
     iterator = iter(items)
-    while batch := list(islice(iterator, PARALLEL_WORKERS * 2)):
+    while batch := list(islice(iterator, PARALLEL_WORKERS * 4)):
         yield from executor.map(function, batch)
 
 
@@ -391,7 +391,7 @@ def enabled_models():
 def run_experiments(executor):
     params = load_params(DATASET_NAME)
     if DATASET_NAME == "xrf55":
-        params["num_epochs"] = 50
+        params["num_epochs"] = 25
     models = enabled_models()
     print(DATASET_NAME, "raw", "seeds=", SEEDS, "models=", models, "params=", params)
     if "--check" in sys.argv:

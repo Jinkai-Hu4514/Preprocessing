@@ -1,0 +1,6 @@
+﻿algorithm_name,algorithm_category,time_seed_42_seconds,time_seed_727_seconds,time_seed_914_seconds,average_seconds,dataset,status,error
+wavelet,denoise,132.691056,126.184360,107.301005,122.058807,widar,ok,
+butterworth,denoise,122.202272,134.703917,118.235165,125.047118,widar,ok,
+savgol,denoise,266.731007,260.035830,269.194150,265.320329,widar,ok,
+bandpass,denoise,134.367853,141.856925,133.656006,136.626928,widar,ok,
+hampel,denoise,35009.907706,,,,widar,partial,

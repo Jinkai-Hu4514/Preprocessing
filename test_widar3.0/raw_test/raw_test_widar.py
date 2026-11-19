@@ -54,7 +54,7 @@ from wsdp.utils import load_params, resize_csi_to_fixed_length
 DATASET_NAME = "widar"
 DATA_FOLDER = "widar3.0"
 SEEDS = (42, 727, 914)
-CUDA_DEVICE_INDEX = 2  # 对应 nvidia-smi 中的 GPU 编号。
+CUDA_DEVICE_INDEX = 1  # 对应 nvidia-smi 中的 GPU 编号。
 PARALLEL_WORKERS = 4  # 22 vCPU / 110 GB 服务器的初始设置，可按实际吞吐调整。
 DATA_PATH = PROJECT_ROOT / "datasets" / DATA_FOLDER
 OUTPUT_ROOT = Path(__file__).resolve().parent
