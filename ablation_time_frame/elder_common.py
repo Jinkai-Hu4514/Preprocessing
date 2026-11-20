@@ -9,7 +9,7 @@ from tempfile import TemporaryDirectory
 
 
 # 两个实验共用这里的显卡编号。用 2 号卡就改成 2，使用 CPU 就改成 None。
-CUDA_DEVICE_INDEX: int | None = 0
+CUDA_DEVICE_INDEX: int | None = 2
 
 ROOT = Path(__file__).resolve().parent
 INPUTS = ROOT / "inputs"

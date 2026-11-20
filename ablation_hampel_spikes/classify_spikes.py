@@ -15,7 +15,7 @@ from torch.utils.data import DataLoader, Subset, TensorDataset
 from count_spikes import ACTIONS, INPUTS, RESULTS, ROOT, write_rows
 
 
-CUDA_DEVICE_INDEX = 0  # 默认 cuda:0。改成 1 就用 cuda:1，也可以通过 --device 覆盖。
+CUDA_DEVICE_INDEX = 2  # 默认 cuda:0。改成 1 就用 cuda:1，也可以通过 --device 覆盖。
 SEEDS = (42, 727, 914)
 MODELS = ("CSI-Time", "ResNet2D")
 MODEL_KEYS = {"CSI-Time": "csitime", "ResNet2D": "resnet2d"}
