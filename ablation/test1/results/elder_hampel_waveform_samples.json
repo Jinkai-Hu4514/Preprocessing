@@ -1,0 +1,68 @@
+{
+  "full_window_frames": 11,
+  "n_sigma": 3.0,
+  "transmit_antenna": 0,
+  "sample_selection": "Fixed sample and CSI channel per activity",
+  "samples": [
+    {
+      "activity": "Static",
+      "sample_csv": "action0_static_new/user0_position1_activity0/20250813=204917_mimo5s_part0.csv",
+      "frames": 50,
+      "span_seconds": 4.009593,
+      "subcarrier": 257,
+      "receive_link": 2,
+      "replaced_points": 15,
+      "sum_absolute_change": 21173.423513153837
+    },
+    {
+      "activity": "Walking",
+      "sample_csv": "action1_walk_new/user0_position8_activity1/20250813=122048_mimo5s_part0.csv",
+      "frames": 22,
+      "span_seconds": 5.237581,
+      "subcarrier": 322,
+      "receive_link": 2,
+      "replaced_points": 7,
+      "sum_absolute_change": 12938.341860235814
+    },
+    {
+      "activity": "Fall",
+      "sample_csv": "action2_fall_new/user0_position1_activity2/20250813=230850_mimo5s_part0.csv",
+      "frames": 37,
+      "span_seconds": 3.339944,
+      "subcarrier": 193,
+      "receive_link": 2,
+      "replaced_points": 10,
+      "sum_absolute_change": 13115.610590356568
+    },
+    {
+      "activity": "Sleep",
+      "sample_csv": "action3_sleep_new/user0_position2_activity3/20250813=183850_mimo5s_part0.csv",
+      "frames": 61,
+      "span_seconds": 5.5042539999999995,
+      "subcarrier": 141,
+      "receive_link": 2,
+      "replaced_points": 15,
+      "sum_absolute_change": 20610.527189494038
+    },
+    {
+      "activity": "Drinking",
+      "sample_csv": "action5_drink_new/user0_position4_activity5/20250813=161044_mimo5s_part0.csv",
+      "frames": 31,
+      "span_seconds": 7.392058,
+      "subcarrier": 141,
+      "receive_link": 2,
+      "replaced_points": 8,
+      "sum_absolute_change": 16597.150830813
+    },
+    {
+      "activity": "Watching TV",
+      "sample_csv": "action6_sit_TV_new/user0_position2_activity6/20250813=171349_mimo5s_part0.csv",
+      "frames": 54,
+      "span_seconds": 5.465517,
+      "subcarrier": 139,
+      "receive_link": 2,
+      "replaced_points": 13,
+      "sum_absolute_change": 21084.607958107787
+    }
+  ]
+}

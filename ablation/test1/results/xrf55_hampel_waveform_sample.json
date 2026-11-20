@@ -1,0 +1,29 @@
+{
+  "sample": "Scene4/WiFi/04_10_20.npy",
+  "candidate_count": 30,
+  "selection_seed": 42,
+  "selection_rule": "Closest to the candidate median replacement counts across all six windows",
+  "subcarrier_index": 4,
+  "flat_antenna_index": 8,
+  "receiver_index": 2,
+  "receiver_antenna_index": 2,
+  "sample_rate_hz": 200,
+  "n_sigma": 3.0,
+  "nonincreasing_candidate_count": 21,
+  "median_candidate_replaced_points_by_window": {
+    "3": 131.5,
+    "5": 96.5,
+    "11": 59.5,
+    "21": 51.0,
+    "51": 31.0,
+    "101": 24.5
+  },
+  "replaced_points_by_window": {
+    "3": 137,
+    "5": 96,
+    "11": 60,
+    "21": 52,
+    "51": 30,
+    "101": 20
+  }
+}
