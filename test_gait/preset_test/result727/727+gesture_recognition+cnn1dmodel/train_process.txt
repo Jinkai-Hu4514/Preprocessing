@@ -65,3 +65,21 @@ Epoch 42/60 train_loss=0.078880 train_acc=0.970425 val_loss=0.368496 val_acc=0.8
 Epoch 43/60 train_loss=0.076625 train_acc=0.972515 val_loss=0.345655 val_acc=0.877696
 Epoch 44/60 train_loss=0.077810 train_acc=0.973158 val_loss=0.365474 val_acc=0.864500
 Epoch 45/60 train_loss=0.080544 train_acc=0.968657 val_loss=0.383934 val_acc=0.860315
+Epoch 46/60 train_loss=0.076255 train_acc=0.974765 val_loss=0.363480 val_acc=0.869649
+Epoch 47/60 train_loss=0.076545 train_acc=0.971872 val_loss=0.371433 val_acc=0.866431
+Epoch 48/60 train_loss=0.079339 train_acc=0.971148 val_loss=0.360342 val_acc=0.873190
+Epoch 49/60 train_loss=0.076063 train_acc=0.975167 val_loss=0.369589 val_acc=0.862890
+Epoch 50/60 train_loss=0.077239 train_acc=0.972756 val_loss=0.355136 val_acc=0.872868
+Epoch 51/60 train_loss=0.078075 train_acc=0.971711 val_loss=0.378149 val_acc=0.864178
+Epoch 52/60 train_loss=0.078662 train_acc=0.972756 val_loss=0.358625 val_acc=0.867074
+Epoch 53/60 train_loss=0.077991 train_acc=0.973318 val_loss=0.372604 val_acc=0.866752
+Epoch 54/60 train_loss=0.077236 train_acc=0.973077 val_loss=0.366633 val_acc=0.866752
+Epoch 55/60 train_loss=0.076480 train_acc=0.972113 val_loss=0.363329 val_acc=0.869649
+Epoch 56/60 train_loss=0.076741 train_acc=0.973318 val_loss=0.367113 val_acc=0.870615
+Epoch 57/60 train_loss=0.078420 train_acc=0.970747 val_loss=0.365463 val_acc=0.869327
+Epoch 58/60 train_loss=0.075414 train_acc=0.973559 val_loss=0.363543 val_acc=0.868684
+Epoch 59/60 train_loss=0.076258 train_acc=0.973318 val_loss=0.357246 val_acc=0.873833
+Epoch 60/60 train_loss=0.075987 train_acc=0.972193 val_loss=0.365202 val_acc=0.869005
+训练耗时（从开始训练到结束，含验证和 checkpoint 保存）: 2854.420 秒
+step 7: evaluate_checkpoint
+best_val_acc, test_acc, macro_f1 = (0.8786610878661087, 0.8741551335693595, 0.838434085407751)
