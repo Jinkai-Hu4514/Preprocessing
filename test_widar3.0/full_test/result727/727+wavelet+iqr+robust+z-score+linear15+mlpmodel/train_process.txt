@@ -59,3 +59,47 @@ Epoch 36/80 train_loss=0.944274 train_acc=0.623776 val_loss=1.453494 val_acc=0.3
 Epoch 37/80 train_loss=0.948495 train_acc=0.619367 val_loss=1.461823 val_acc=0.372786
 Epoch 38/80 train_loss=0.948246 train_acc=0.621660 val_loss=1.465423 val_acc=0.380837
 Epoch 39/80 train_loss=0.945634 train_acc=0.628450 val_loss=1.468244 val_acc=0.377617
+Epoch 40/80 train_loss=0.947220 train_acc=0.620690 val_loss=1.462395 val_acc=0.380837
+Epoch 41/80 train_loss=0.948011 train_acc=0.623247 val_loss=1.460409 val_acc=0.378422
+Epoch 42/80 train_loss=0.945755 train_acc=0.620425 val_loss=1.466159 val_acc=0.376409
+Epoch 43/80 train_loss=0.949966 train_acc=0.622630 val_loss=1.461880 val_acc=0.377617
+Epoch 44/80 train_loss=0.948386 train_acc=0.625628 val_loss=1.476765 val_acc=0.376006
+Epoch 45/80 train_loss=0.937142 train_acc=0.627216 val_loss=1.467371 val_acc=0.375604
+Epoch 46/80 train_loss=0.947595 train_acc=0.622718 val_loss=1.466658 val_acc=0.373591
+Epoch 47/80 train_loss=0.948703 train_acc=0.623512 val_loss=1.468784 val_acc=0.378019
+Epoch 48/80 train_loss=0.953503 train_acc=0.615045 val_loss=1.458520 val_acc=0.378824
+Epoch 49/80 train_loss=0.947355 train_acc=0.623688 val_loss=1.460117 val_acc=0.375201
+Epoch 50/80 train_loss=0.946502 train_acc=0.621572 val_loss=1.465842 val_acc=0.379227
+Epoch 51/80 train_loss=0.958119 train_acc=0.621748 val_loss=1.467125 val_acc=0.375201
+Epoch 52/80 train_loss=0.937137 train_acc=0.627480 val_loss=1.466743 val_acc=0.378422
+Epoch 53/80 train_loss=0.946769 train_acc=0.620337 val_loss=1.462934 val_acc=0.379630
+Epoch 54/80 train_loss=0.946169 train_acc=0.624305 val_loss=1.472267 val_acc=0.378019
+Epoch 55/80 train_loss=0.945728 train_acc=0.624746 val_loss=1.470431 val_acc=0.378422
+Epoch 56/80 train_loss=0.946941 train_acc=0.622983 val_loss=1.460472 val_acc=0.381643
+Epoch 57/80 train_loss=0.947733 train_acc=0.620601 val_loss=1.457121 val_acc=0.381643
+Epoch 58/80 train_loss=0.946518 train_acc=0.625981 val_loss=1.455160 val_acc=0.378422
+Epoch 59/80 train_loss=0.948048 train_acc=0.619984 val_loss=1.464583 val_acc=0.377617
+Epoch 60/80 train_loss=0.953413 train_acc=0.617250 val_loss=1.468477 val_acc=0.379630
+Epoch 61/80 train_loss=0.946199 train_acc=0.620513 val_loss=1.472760 val_acc=0.380032
+Epoch 62/80 train_loss=0.942919 train_acc=0.625805 val_loss=1.456545 val_acc=0.374396
+Epoch 63/80 train_loss=0.946806 train_acc=0.623071 val_loss=1.462221 val_acc=0.379630
+Epoch 64/80 train_loss=0.946389 train_acc=0.626510 val_loss=1.460857 val_acc=0.376409
+Epoch 65/80 train_loss=0.943515 train_acc=0.619720 val_loss=1.462553 val_acc=0.378422
+Epoch 66/80 train_loss=0.944355 train_acc=0.620954 val_loss=1.458315 val_acc=0.374799
+Epoch 67/80 train_loss=0.946847 train_acc=0.619367 val_loss=1.460457 val_acc=0.375201
+Epoch 68/80 train_loss=0.942959 train_acc=0.630126 val_loss=1.459581 val_acc=0.376006
+Epoch 69/80 train_loss=0.947823 train_acc=0.624129 val_loss=1.470937 val_acc=0.380435
+Epoch 70/80 train_loss=0.944595 train_acc=0.623512 val_loss=1.455572 val_acc=0.369565
+Epoch 71/80 train_loss=0.946801 train_acc=0.619367 val_loss=1.467469 val_acc=0.382448
+Epoch 72/80 train_loss=0.944890 train_acc=0.614340 val_loss=1.464431 val_acc=0.377617
+Epoch 73/80 train_loss=0.947787 train_acc=0.625540 val_loss=1.468297 val_acc=0.380837
+Epoch 74/80 train_loss=0.940617 train_acc=0.625187 val_loss=1.463465 val_acc=0.376812
+Epoch 75/80 train_loss=0.943989 train_acc=0.629332 val_loss=1.460970 val_acc=0.379227
+Epoch 76/80 train_loss=0.945009 train_acc=0.625099 val_loss=1.467085 val_acc=0.378422
+Epoch 77/80 train_loss=0.951081 train_acc=0.620425 val_loss=1.462023 val_acc=0.376409
+Epoch 78/80 train_loss=0.945655 train_acc=0.627921 val_loss=1.459369 val_acc=0.379227
+Epoch 79/80 train_loss=0.948711 train_acc=0.621395 val_loss=1.466681 val_acc=0.377214
+Epoch 80/80 train_loss=0.946836 train_acc=0.621836 val_loss=1.466893 val_acc=0.380435
+训练耗时（从开始训练到结束，含验证和 checkpoint 保存）: 1609.581 秒
+step 7: evaluate_checkpoint
+best_val_acc, test_acc, macro_f1 = (0.38446054750402575, 0.4057239057239057, 0.39530958414242084)

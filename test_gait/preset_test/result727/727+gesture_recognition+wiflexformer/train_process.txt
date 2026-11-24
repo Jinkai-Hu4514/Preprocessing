@@ -75,3 +75,11 @@ Epoch 52/60 train_loss=0.069415 train_acc=0.974042 val_loss=0.589360 val_acc=0.8
 Epoch 53/60 train_loss=0.066723 train_acc=0.974926 val_loss=0.612345 val_acc=0.815578
 Epoch 54/60 train_loss=0.066749 train_acc=0.975006 val_loss=0.612967 val_acc=0.812681
 Epoch 55/60 train_loss=0.067260 train_acc=0.973559 val_loss=0.639391 val_acc=0.811715
+Epoch 56/60 train_loss=0.064339 train_acc=0.976212 val_loss=0.610911 val_acc=0.813325
+Epoch 57/60 train_loss=0.066929 train_acc=0.975086 val_loss=0.629304 val_acc=0.808819
+Epoch 58/60 train_loss=0.064938 train_acc=0.977819 val_loss=0.603875 val_acc=0.814612
+Epoch 59/60 train_loss=0.066855 train_acc=0.974604 val_loss=0.586490 val_acc=0.819118
+Epoch 60/60 train_loss=0.065591 train_acc=0.976292 val_loss=0.613301 val_acc=0.813003
+训练耗时（从开始训练到结束，含验证和 checkpoint 保存）: 1189.661 秒
+step 7: evaluate_checkpoint
+best_val_acc, test_acc, macro_f1 = (0.8236240746700998, 0.8741551335693595, 0.844310204984885)
