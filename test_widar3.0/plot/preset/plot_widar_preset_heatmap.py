@@ -18,7 +18,7 @@ from matplotlib.patches import Rectangle
 
 
 PLOT_DIR = Path(__file__).resolve().parent
-RESULT_DIR = PLOT_DIR.parents[2] / "test_widar3.0" / "preset_test"
+RESULT_DIR = PLOT_DIR.parents[1] / "preset_test"
 OUTPUT_PATH = PLOT_DIR / "widar_preset_heatmap.png"
 SEEDS = (42, 727, 914)
 RANDOM_BASELINE = 100 / 6  # The Widar experiment uses six gesture classes.
