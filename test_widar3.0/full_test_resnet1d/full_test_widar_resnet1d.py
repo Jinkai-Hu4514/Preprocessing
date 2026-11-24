@@ -1,6 +1,6 @@
-"""独立的完整实验脚本；直接运行本文件即可，--check 只检查配置。
+"""ResNet1D 两阶段实验。--check 只检查配置。
 
-本文件运行全部 320 种预处理组合。
+本文件运行第 1–160 种组合，full_test_widar_resnet1d_part2.py 运行第 161–320 种。
 
 所有 acc/F1 均为 0–1。测试只使用最佳验证 checkpoint。
 splits/ 保存两个阶段共享的原始样本清单和划分，数据变化时拒绝混用旧结果。
@@ -58,7 +58,7 @@ DATA_FOLDER = "widar3.0"
 MODEL_NAME = "ResNet1D"
 STAGE = "full"
 SEEDS = (42, 727, 914)
-CUDA_DEVICE_INDEX = 2  # 对应 nvidia-smi 中的 GPU 编号。
+CUDA_DEVICE_INDEX = 2  # 第 1–160 种组合使用的 GPU 编号，可单独修改。
 PARALLEL_WORKERS = 4  # 22 vCPU / 110 GB 服务器的初始设置，可按实际吞吐调整。
 DATA_PATH = PROJECT_ROOT / "datasets" / DATA_FOLDER
 OUTPUT_ROOT = Path(__file__).resolve().parent
@@ -488,11 +488,12 @@ def read_summary(path):
         return list(csv.DictReader(handle))
 
 
-def run_experiments(executor, start=0, stop=320):
+def run_experiments(executor, start=0, stop=160):
     params = load_params(DATASET_NAME)
     if DATASET_NAME == "xrf55":
         params["num_epochs"] = 50
     experiments = build_experiments()[start:stop]
+    experiment_names = {name for name, _ in experiments}
     print(f"组合范围: 第 {start + 1}–{stop} 种（沿用完整列表顺序）", flush=True)
     models = list(list_models()) if STAGE == "preset" else [MODEL_NAME]
     print(DATASET_NAME, STAGE, "seeds=", SEEDS, "pipelines=", len(experiments), "models=", models, "params=", params)
@@ -505,11 +506,18 @@ def run_experiments(executor, start=0, stop=320):
     for seed in SEEDS:
         directory = OUTPUT_ROOT / f"result{seed}"
         directory.mkdir(parents=True, exist_ok=True)
-        paths[seed] = directory / f"{DATA_FOLDER}_{STAGE}_{start + 1}_{stop}_summary.csv"
+        summary_path = directory / f"{DATA_FOLDER}_{STAGE}_{start + 1}_{stop}_summary.csv"
+        paths[seed] = summary_path
+        source_path = summary_path
+        if STAGE == "full" and not summary_path.exists():
+            source_path = directory / f"{DATA_FOLDER}_{STAGE}_1_320_summary.csv"
+        importing_full_summary = source_path != summary_path
         rows = {}
-        if paths[seed].exists():
+        if source_path.exists():
             rows = {(row["combo_name"], row["model"]): row
-                    for row in read_summary(paths[seed])}
+                    for row in read_summary(source_path)
+                    if not importing_full_summary
+                    or (row["combo_name"] in experiment_names and row["model"] in models)}
         # 旧服务器保存的是绝对路径；确认当前目录的文件齐全后更新汇总表。
         relocated = False
         for row in rows.values():
@@ -519,8 +527,8 @@ def run_experiments(executor, start=0, stop=320):
                             for filename in ("best_checkpoint.pth", "loss_curve.png", "train_process.txt"))):
                 row["output_dir"] = str(current_output)
                 relocated = True
-        if relocated:
-            save_summary(paths[seed], rows)
+        if relocated or (importing_full_summary and rows):
+            save_summary(summary_path, rows)
         summaries[seed] = rows
     prefix_cache = {}
     for name, steps in experiments:
@@ -575,7 +583,7 @@ def run_experiments(executor, start=0, stop=320):
     print("实验结束；失败项已记录，正常续跑会跳过。")
 
 
-def main(start=0, stop=320):
+def main(start=0, stop=160):
     # spawn 在 Windows/Linux 上使用相同的启动方式，工作进程不继承主进程 CUDA 状态。
     # 读取和全部预处理共用此池；退出脚本时统一关闭。
     with ProcessPoolExecutor(max_workers=PARALLEL_WORKERS,
